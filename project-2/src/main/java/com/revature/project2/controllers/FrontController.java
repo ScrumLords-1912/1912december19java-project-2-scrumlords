@@ -1,4 +1,4 @@
-package com.revature.controllers;
+package com.revature.project2.controllers;
 
 import java.io.IOException;
 import javax.servlet.ServletConfig;
