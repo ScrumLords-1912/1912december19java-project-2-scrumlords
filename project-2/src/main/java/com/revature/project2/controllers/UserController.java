@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.revature.project2.models.User;
 import com.revature.project2.services.UserService;
@@ -22,11 +23,7 @@ public class UserController {
     return userService.get(id);
   }
  **/
-  
-  @GetMapping("/test")
-  public void test( ) {
-    System.out.println("Hit this endpoint");
-  }
+
   
   @PostMapping("/login/create-account")
   public void save(User user) {
@@ -39,7 +36,7 @@ public class UserController {
   }
 
   @PostMapping("/login")
-  public User validate(User user) {
+  public User validate(@RequestBody User user) {
     return userService.validate(user);
   }
   

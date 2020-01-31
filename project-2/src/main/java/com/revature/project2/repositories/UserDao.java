@@ -4,16 +4,27 @@ import com.revature.project2.models.User;
 
 public interface UserDao {
 
-  //Get user by Id
+  
+  /**
+   * This method selects the user account based on their id
+   */
   User get(int id);
   
-  //Create new user account
+  /**
+   * This method can be used to save a newly created user account to the database
+   */
   void save(User user);
   
-  //Update an existing account
+  
+  /**
+   * This method can be used to update an existing user's account information
+   */
   void update(User user);
   
-  //Validate info for login---   User input is mapped to User obj ("User" param) OR change params to username/password strings
+  /**
+   * Validates information for logging in
+   * User input is mapped to User object ("User" parameter)
+   */
   User validate(User user);
   
 }
