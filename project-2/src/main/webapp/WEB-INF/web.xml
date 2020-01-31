@@ -1,21 +1,32 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  
-    	<filter>
-		<filter-name>CORS</filter-name>
-		<filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<display-name>project-2</display-name>
+	
+	<context-param>
+		<param-name>ContextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext.xml</param-value>
+	</context-param>
+	
+	<servlet>
+		<servlet-name>FCServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
-			<param-name>cors.allowed.origins</param-name>
-			<param-value>*</param-value>
+			<param-name>ContextConfigLocation</param-name>
+			<param-value>/WEB-INF/dispatcherContext.xml</param-value>
 		</init-param>
-	</filter>
-
-	<filter-mapping>
-		<filter-name>CORS</filter-name>
-		<url-pattern>*</url-pattern>
-	</filter-mapping>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>FCServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
 </web-app>
