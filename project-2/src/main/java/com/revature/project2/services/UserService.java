@@ -1,6 +1,8 @@
 package com.revature.project2.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.revature.project2.models.User;
 import com.revature.project2.repositories.UserDao;
 import com.revature.project2.repositories.UserDaoImpl;
@@ -10,6 +12,7 @@ import com.revature.project2.repositories.UserDaoImpl;
  * @author User
  *
  */
+@Service
 public class UserService implements UserDao {
 
   @Autowired

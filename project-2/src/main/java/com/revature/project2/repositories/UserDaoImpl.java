@@ -46,7 +46,7 @@ public class UserDaoImpl {
 
   public User validate(User user) {
     Session session = sf.getCurrentSession();
-    Query checkInfo = session.createQuery("from user_table where username == :username and password == :password");
+    Query checkInfo = session.createQuery("from user where username = :username and password = :password");
     checkInfo.setString("username", user.getUsername());
     checkInfo.setString("password", user.getPassword());
     return user;

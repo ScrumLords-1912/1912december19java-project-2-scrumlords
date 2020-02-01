@@ -10,7 +10,6 @@ import com.revature.project2.models.User;
 import com.revature.project2.services.UserService;
 
 @Controller
-@RequestMapping("/project-2")
 public class UserController {
 
   @Autowired
@@ -26,12 +25,12 @@ public class UserController {
 
   
   @PostMapping("/login/create-account")
-  public void save(User user) {
+  public void save(@RequestBody User user) {
     userService.save(user);
   }
 
-  @PostMapping("/profile")
-  public void update(User user) {
+  @PostMapping("/profile/update-account")
+  public void update(@RequestBody User user) {
     userService.update(user);
   }
 
