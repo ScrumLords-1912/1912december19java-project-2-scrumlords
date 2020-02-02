@@ -1,1 +1,60 @@
-<p>leaderboard works!</p>
+<h1>LeaderBoard</h1>
+
+
+<ngb-tabset type="pills" [orientation]="vertical">
+    <div class="container-fluid">
+        <ngb-tab title="Card Match">
+            <ng-template ngbTabContent>
+                <div class="col-12 col-lg-6">
+                    <table>
+                        <thead>
+                            <h4>Your Scores</h4>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let score of scores; let i = index">
+                                <td>#{{(i+1)}}------------------</td>
+                                <td>{{score.score}}</td>
+                                <td>-----------------</td>
+                                <td>{{score.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <table>
+                        <thead>
+                            <h4>Global High Scores</h4>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let highscore of highscores; let i = index">
+                                <td>#{{(i+1)}}------------------</td>
+                                <td>{{highscore.score}}</td>
+                                <td>-----------------</td>
+                                <td>{{highscore.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Cookie Clicker 5000">
+            <div class="col-12 col-lg-6">
+                <ng-template ngbTabContent>
+                    <table>
+                        <thead>
+                            <h4>Your Scores</h4>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#1------------------</td>
+                                <td>1,000,000</td>
+                                <td>-----------------</td>
+                                <td>Allen</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ng-template>
+            </div>
+        </ngb-tab>
+    </div>
+</ngb-tabset>
