@@ -25,6 +25,6 @@ public interface UserDao {
    * Validates information for logging in
    * User input is mapped to User object ("User" parameter)
    */
-  User validate(User user);
+  Boolean validate(String username, String password);
   
 }

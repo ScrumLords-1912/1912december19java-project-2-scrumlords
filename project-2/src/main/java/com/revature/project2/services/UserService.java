@@ -35,8 +35,8 @@ public class UserService implements UserDao {
   }
 
   @Override
-  public User validate(User user) {
-    return userDao.validate(user);
+  public Boolean validate(String username, String password) {
+    return userDao.validate(username, password);
   }
 
 }
