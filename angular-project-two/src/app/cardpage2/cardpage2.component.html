@@ -1,0 +1,19 @@
+<mat-card class = "tp-card">
+    <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile  *ngFor="let card of cardList" >
+            <img (click)="open($event, card.id)" [src]="card.imageUrl" style="object-fit: cover; height: inherit; width: inherit;"/>          
+        </mat-grid-tile>
+      </mat-grid-list>    
+</mat-card>  
+
+<!--
+    {{card.id}}
+    <mat-grid-list cols="4" rowHeight="100px">  
+        <div  *ngFor="let card of cardList">
+      <mat-grid-tile *ngFor="let card of cardList">
+          <!--<ng-container> -->
+            <!--<img (click)="open($event, card.id)" [src]="card.imageUrl" style="object-fit: cover; height: inherit; width: inherit;"/>-->
+            <!-- </ng-container>  -->       
+    <!--    </mat-grid-tile>
+      </mat-grid-list>
+-->
