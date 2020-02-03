@@ -1,0 +1,24 @@
+<nav class="nav nav-tabs navbar-dark bg-dark">
+    <a class="nav-item nav-link bg-dark"
+    routerLink="home">
+        Home</a>
+    
+<div ngbDropdown class="d-inline-block">
+    <button class="nav-item nav-link bg-dark" id="dropdown" ngbDropdownToggle>Games</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <a class="dropdown-item"
+            routerLink="match" ngbDropdownItem>match</a>
+        <a class="dropdown-item"
+            routerLink="match" ngbDropdownItem>Under Construction!</a>
+    </div>
+</div>
+
+    <a class="nav-item nav-link bg-dark"
+    routerLink="profile">
+        Profile</a>
+    <a class="nav-item nav-link bg-dark"
+    routerLink="info">
+        Card-Info</a>
+</nav>
+
+<router-outlet></router-outlet>

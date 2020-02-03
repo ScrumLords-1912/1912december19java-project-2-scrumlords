@@ -33,6 +33,19 @@ export class UserService {
       });
   }
 
+  /*
+  updateProfile(User user) {
+    this.http.post('http://localhost:9999', user)
+      .subscribe((response: boolean) = > {
+        if (response) {
+          
+        } else {
+          
+        }
+      })
+  }
+  */
+
   logOUt(){
     this.isLoggedIn = false;
     this.loggedInUser = new User(0, '','');
