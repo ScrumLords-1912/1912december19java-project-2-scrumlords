@@ -1,6 +1,8 @@
 export class Scores {
+    user_id: number;
+    game_id: number;
     score: number;
-    name: string;
+    name: string; //ommitted, search by user id to get username
 }
 
 export const MOCK_SCORES = [

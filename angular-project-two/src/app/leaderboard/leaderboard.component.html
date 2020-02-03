@@ -3,7 +3,7 @@
 
 <ngb-tabset type="pills" [orientation]="vertical">
     <div class="container-fluid">
-        <ngb-tab title="Card Match">
+        <ngb-tab title="Card Match" (click)="switchGame(0)">
             <ng-template ngbTabContent>
                 <div class="col-12 col-lg-6">
                     <table>
