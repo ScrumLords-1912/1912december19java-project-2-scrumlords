@@ -24,8 +24,8 @@ public class LeaderboardService {
     return leaderDao.getAllLeaderboardsByGameId(id);
   }
   
-  public void saveOrUpdate(Leaderboard leaderboard) {
-    leaderDao.saveOrUpdate(leaderboard);
+  public void save(Leaderboard leaderboard) {
+    leaderDao.save(leaderboard);
   }
   
   public void delete(Leaderboard leaderboard) {

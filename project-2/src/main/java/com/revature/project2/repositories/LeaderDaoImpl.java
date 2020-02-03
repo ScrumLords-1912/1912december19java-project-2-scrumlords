@@ -50,10 +50,10 @@ public class LeaderDaoImpl {
     return leaderboards;
   }
   
-  public void saveOrUpdate(Leaderboard leaderboard) {
+  public void save(Leaderboard leaderboard) {
     Session session = sf.getCurrentSession();
     
-    session.saveOrUpdate(leaderboard);
+    session.save(leaderboard);
   }
   
   public void delete(Leaderboard leaderboard) {

@@ -40,7 +40,7 @@ public class LeaderboardController {
   @PostMapping
   @ResponseStatus(code = HttpStatus.CREATED)
   public void saveOrUpdate(@RequestBody Leaderboard leaderboard) {
-    leaderboardService.saveOrUpdate(leaderboard);
+    leaderboardService.save(leaderboard);
   }
   
   @PostMapping("/delete/{uid}/{gid}/{score}")
