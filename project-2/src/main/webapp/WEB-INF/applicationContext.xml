@@ -16,17 +16,22 @@
 	</context:component-scan>
 
 	<!-- Hibernate Config Goes Here -->
-	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="org.postgresql.Driver"></property>
-		<property name="url" value="jdbc:postgresql://database-2.c32anyjmqflo.us-east-1.rds.amazonaws.com/postgres"></property>
-		<property name="username" value="postgres"></property>
-		<property name="password" value="wasspord"></property>
+
+	<bean name="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="org.postgresql.Driver" />
+		<property name="url"
+			value="jdbc:postgresql://database-2.c32anyjmqflo.us-east-1.rds.amazonaws.com:5432/postgres" />
+		<property name="username" value="postgres" />
+		<property name="password" value="wasspord" />
 	</bean>
-	
-	<!-- Bean Wire DataSource above to datasource in sessionFactory -->
-	<bean name="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource"></property>
-		<property name="packagesToScan" value="com.revature.books.models"></property>
+
+	<bean name="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan"
+			value="com.revature.project2.models" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
@@ -34,8 +39,9 @@
 			</props>
 		</property>
 	</bean>
-	
+
 	<bean name="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 

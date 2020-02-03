@@ -10,6 +10,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 	<!-- Scan for Spring beans -->
+
 	<context:component-scan base-package="com.revature.project2.controllers" >
 		
 	</context:component-scan>
@@ -21,10 +22,5 @@
 	<mvc:resources mapping="/static/**"
 		location="/WEB-INF/static/" />
 
-	<!-- We won't be using views in this project but here's how to configure 
-		a ViewResolver to find and use jsp files -->
-	<!-- <bean name="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
-		<property name="prefix"> <value>/WEB-INF/pages/</value> </property> <property 
-		name="suffix"> <value>.jsp</value> </property> </bean> -->
 
 </beans>
