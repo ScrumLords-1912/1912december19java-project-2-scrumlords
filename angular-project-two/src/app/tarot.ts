@@ -3,6 +3,7 @@ export class Tarot {
     name : string;
     description : string;
     image : string;
+    //this is changing
 }
 
 export const fool = {
