@@ -44,12 +44,12 @@ public class UserDaoImpl {
     session.update(user);
   }
 
-  public User validate(User user) {
+  public Boolean validate(String username, String password) {
     Session session = sf.getCurrentSession();
-    Query checkInfo = session.createQuery("from user where username = :username and password = :password");
-    checkInfo.setString("username", user.getUsername());
-    checkInfo.setString("password", user.getPassword());
-    return user;
+    Query checkInfo = session.createQuery("SELECT * from User WHERE username = :username AND password = :password");
+    checkInfo.setString("username", username);
+    checkInfo.setString("password", password);
+    return (checkInfo.list().size() > 0);
   }  
   
 }
