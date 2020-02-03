@@ -13,6 +13,10 @@ import { DeckComponent } from './deck/deck.component';
 import { CardComponent } from './card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CardpageComponent } from './cardpage/cardpage.component';
+import { Cardpage2Component } from './cardpage2/cardpage2.component';
+import { MatCardModule, MatGridListModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,14 +28,19 @@ import { NavbarComponent } from './navbar/navbar.component';
     LeaderboardComponent,
     DeckComponent,
     CardComponent,
-    NavbarComponent
+    NavbarComponent,
+    CardpageComponent,
+    Cardpage2Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    MatCardModule,
+    MatGridListModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
