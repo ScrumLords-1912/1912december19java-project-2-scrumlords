@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Scores, MOCK_SCORES } from '../mockScores'
+import { Scores } from '../scores'
 import { ConnectionService } from '../connection.service';
 import { Observable } from 'rxjs';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-leaderboard',
@@ -10,45 +11,35 @@ import { Observable } from 'rxjs';
 })
 export class LeaderboardComponent implements OnInit {
 
-
-///////////// MOCK SCORES
-scores = MOCK_SCORES.sort(function(a,b) {
- return b.score - a.score;
-});
-
-highscores = MOCK_SCORES.sort(function(a,b) {
-  return b.score - a.score;
- });
-/////////////
-
-
-
-myscores: Scores[] = [];
+userScores: Scores[] = [];
 globalScores: Scores[] = [];
+gameId: number;
 
-  constructor(public scoreService: ConnectionService) { }
+  constructor(public connection: ConnectionService) { }
 
   ngOnInit() {
-    this.populateUserScores(1); //getUserId
-    this.populateGlobalScores(0);
+    this.gameId = 0;
+    this.populateUserScores();
+    this.populateGlobalScores(this.gameId);
   }
 
-  async populateUserScores(userId: number) {
-    this.myscores = await this.scoreService.getUserScores(userId);
-    this.myscores.sort(function(a,b) {
+  async populateUserScores() {
+    this.userScores = await this.connection.getUserScores();
+    this.userScores.filter(obj => (obj.game_id === this.gameId));
+    this.userScores.sort(function(a,b) {
       return b.score - a.score;});
   }
 
   async populateGlobalScores(gameId: number) {
-    let globalScores = await this.scoreService.getAllScores(0);
-    // this.globalScores = globalScores.filter(game=>Scores.game_id === this.gameId);
+    this.globalScores = await this.connection.getAllScores(gameId);
     this.globalScores.sort(function(a,b) {
       return b.score - a.score;});
   }
 
-  switchGame(gameId: number) {
-    this.populateUserScores(1); //TODO: Filter by game
-    this.populateGlobalScores(gameId);
+  switchGame(game: number) {
+    this.gameId = game;
+    this.populateUserScores();
+    this.populateGlobalScores(game);
   }
 
 }

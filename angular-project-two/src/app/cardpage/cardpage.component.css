@@ -1,0 +1,11 @@
+ .tp-card {
+    max-height: 100px;
+ }
+ .tile-image {
+    width:100%;
+    height: auto;
+  }
+ mat-grid-tile {
+    background: lightblue;
+    /* background-image: 'assets/table_image.jfif'; */
+  }
