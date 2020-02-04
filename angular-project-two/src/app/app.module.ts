@@ -13,6 +13,7 @@ import { DeckComponent } from './deck/deck.component';
 import { CardComponent } from './card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CarouselComponent } from './carousel/carousel.component';
 import { CardpageComponent } from './cardpage/cardpage.component';
 import { Cardpage2Component } from './cardpage2/cardpage2.component';
 import { MatCardModule, MatGridListModule } from '@angular/material';
@@ -29,6 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DeckComponent,
     CardComponent,
     NavbarComponent,
+    CarouselComponent,
     CardpageComponent,
     Cardpage2Component
   ],
