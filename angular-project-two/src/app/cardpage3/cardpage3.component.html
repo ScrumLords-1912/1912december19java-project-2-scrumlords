@@ -1,0 +1,12 @@
+
+  <button value="4 by 4 grid" (click)="fourbyfour()"></button><button value="5 by 5 grid" (click)="fivebyfive()"></button><button value="6 by 7 grid" (click)="sixbyseven()"></button>
+
+  <hr/>
+  
+  <mat-card class = "tp-card">
+      <mat-grid-list [cols]="cols" rowHeight="100px">
+          <mat-grid-tile  *ngFor="let card of cardList" >
+              <img (click)="open($event, card.id)" [src]="card.imageUrl" style="object-fit: cover; height: inherit; width: inherit;"/>          
+          </mat-grid-tile>
+        </mat-grid-list>    
+  </mat-card>  
