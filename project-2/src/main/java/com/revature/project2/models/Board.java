@@ -100,8 +100,7 @@ public class Board {
           if (boardArray.get(i) != -1) {
             break;
           } else if (i == boardArray.size() - 1) {
-            //-----------------IMPLEMENT FINISH VICTORY----------------------
-            //Send score to leaderboard table.
+            //Victory condition in service layer
             return 2; //End of game, 2 signifies finish.
           }
         }

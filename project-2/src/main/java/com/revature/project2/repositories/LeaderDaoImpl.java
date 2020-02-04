@@ -8,58 +8,82 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
+import com.revature.project2.models.Board;
 import com.revature.project2.models.Leaderboard;
 
 @Repository
 @Transactional
 @EnableTransactionManagement
-public class LeaderDaoImpl {
+public class LeaderDaoImpl implements LeaderDao {
 
   private SessionFactory sf;
-  
+
   @Autowired
   public LeaderDaoImpl(SessionFactory sf) {
     this.sf = sf;
   }
-  
-  public List<Leaderboard> getAllLeaderboards(){
+
+  public List<Leaderboard> getAllLeaderboards() {
     Session session = sf.getCurrentSession();
-    
+
     Query q = session.createQuery("from leaderboard");
     List<Leaderboard> leaderboards = q.list();
     return leaderboards;
   }
-  
-  public List<Leaderboard> getAllLeaderboardsByUserId(Integer id){
+
+  public List<Leaderboard> getAllLeaderboardsByUserId(Integer id) {
     Session session = sf.getCurrentSession();
-    
+
     Query q = session.createQuery("from leaderboard where user_id = :user_id");
     q.setString("user_id", id.toString());
-    
+
     List<Leaderboard> leaderboards = q.list();
     return leaderboards;
   }
-  
-  public List<Leaderboard> getAllLeaderboardsByGameId(Integer id){
+
+  public List<Leaderboard> getAllLeaderboardsByGameId(Integer id) {
     Session session = sf.getCurrentSession();
-    
+
     Query q = session.createQuery("from leaderboard where game_id = :game_id");
     q.setString("game_id", id.toString());
-    
+
     List<Leaderboard> leaderboards = q.list();
     return leaderboards;
   }
-  
+
   public void save(Leaderboard leaderboard) {
     Session session = sf.getCurrentSession();
-    
+
     session.save(leaderboard);
   }
-  
+
   public void delete(Leaderboard leaderboard) {
     Session session = sf.getCurrentSession();
-    
+
     session.delete(leaderboard);
   }
-  
+
+  public Board getBoard(Integer id) {
+    Session session = sf.getCurrentSession();
+
+    Query q = session.createQuery("from gamestate");
+    List<Board> boards = q.list();
+    if (boards.size() < 1) {
+      return null;
+    }
+    return boards.get(0);
+  }
+
+  public void save(Board board) {
+    Session session = sf.getCurrentSession();
+
+    session.save(board);
+  }
+
+  public void delete(Board board) {
+    Session session = sf.getCurrentSession();
+
+    session.delete(board);
+  }
+
 }

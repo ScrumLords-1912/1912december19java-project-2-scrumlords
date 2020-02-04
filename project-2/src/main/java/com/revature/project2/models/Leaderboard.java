@@ -2,6 +2,8 @@ package com.revature.project2.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +20,7 @@ public class Leaderboard {
   private Integer score;
   
   @Column(name = "datetime")
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private String datetime;
   
   public Leaderboard() {
