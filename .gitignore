@@ -61,7 +61,6 @@ tmp/
 *.swp
 *~.nib
 local.properties
-.settings/
 .loadpath
 .recommenders
 
@@ -108,13 +107,6 @@ local.properties
 .cache-main
 .scala_dependencies
 .worksheet
-
-### Eclipse Patch ###
-# Eclipse Core
-.project
-
-# JDT-specific (Eclipse Java Development Tools)
-.classpath
 
 # Annotation Processing
 .apt_generated
