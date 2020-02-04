@@ -160,6 +160,13 @@ export const world = {
     image: "https://gfx.tarot.com/images/site/decks/universal-waite/full_size/21.jpg",
 };
 
+export const backImage = {
+    id: 22,
+    name: "Background",
+    description: "This is the background",
+    image: "https://ksr-ugc.imgix.net/assets/003/083/312/b44232d943e40478fe10d583829c41cd_original.jpg?ixlib=rb-2.1.0&w=680&fit=max&v=1419657190&auto=format&gif-q=50&q=92&s=49d9dc1824a7479769f9a221ec4b77f6",
+};
+
 export const DECK = [fool, magician, highPriestess, empress, emperor, 
     hierophant, lovers, chariot, strength, hermit, wheel, justice, hangMan, death,
-    temperance, devil, tower, star, moon, sun, judgement, world]
+    temperance, devil, tower, star, moon, sun, judgement, world, backImage]
