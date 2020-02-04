@@ -1,0 +1,205 @@
+<div class="bg-secondary overflow-hidden">
+    <div class="fluid-container center bg-secondary">
+      <ngb-carousel *ngIf="deck">
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[0].image" alt="The Fool" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The Fool</h3>
+            <p>{{ deck[0].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[1].image" alt="The Magician" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The Magician</h3>
+            <p>{{ deck[1].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[2].image" alt="The High Priestess" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The High Priestess</h3>
+            <p>{{ deck[2].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[3].image" alt="The Empress" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The Empress</h3>
+            <p>{{ deck[3].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[4].image" alt="The Emperor" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The Emperor</h3>
+            <p>{{ deck[4].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[5].image" alt="The Hierophant" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The Hierophant</h3>
+            <p>{{ deck[5].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[6].image" alt="The Lovers" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The Lovers</h3>
+            <p>{{ deck[6].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[7].image" alt="The Chariot" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The Chariot</h3>
+            <p>{{ deck[7].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[8].image" alt="Strength" />
+          </div>
+          <div class="carousel-caption">
+            <h3>Strength</h3>
+            <p>{{ deck[8].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[9].image" alt="The Hermit" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The Hermit</h3>
+            <p>{{ deck[9].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[10].image" alt="The Wheel of Fortune" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The Wheel of Fortune</h3>
+            <p>{{ deck[10].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[11].image" alt="Justice" />
+          </div>
+          <div class="carousel-caption">
+            <h3>Justice</h3>
+            <p>{{ deck[11].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[12].image" alt="The Hanged Man" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The Hanged Man</h3>
+            <p>{{ deck[12].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[13].image" alt="Death" />
+          </div>
+          <div class="carousel-caption">
+            <h3>Death</h3>
+            <p>{{ deck[13].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[14].image" alt="Temperance" />
+          </div>
+          <div class="carousel-caption">
+            <h3>Temperance</h3>
+            <p>{{ deck[14].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[15].image" alt="The Devil" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The Devil</h3>
+            <p>{{ deck[15].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[16].image" alt="The Tower" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The Tower</h3>
+            <p>{{ deck[16].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[17].image" alt="The Star" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The Star</h3>
+            <p>{{ deck[17].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[18].image" alt="The Moon" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The Moon</h3>
+            <p>{{ deck[18].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[19].image" alt="The Sun" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The Sun</h3>
+            <p>{{ deck[19].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[20].image" alt="Judgement" />
+          </div>
+          <div class="carousel-caption">
+            <h3>Judgment</h3>
+            <p>{{ deck[20].description }}</p>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="deck[21].image" alt="The World" />
+          </div>
+          <div class="carousel-caption">
+            <h3>The World</h3>
+            <p>{{ deck[21].description }}</p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
+  
