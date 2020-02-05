@@ -30,7 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CardComponent,
     NavbarComponent,
     CardpageComponent,
-    Cardpage2Component
+    Cardpage2Component,
   ],
   imports: [
     BrowserModule,
