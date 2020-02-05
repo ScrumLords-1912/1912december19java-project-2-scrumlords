@@ -33,8 +33,7 @@ public class LeaderDaoImpl implements LeaderDao {
     return leaderboards;
   }
   
-  @Override
-  public List<Leaderboard> getAllLeaderboardsByUserId(int id){
+  public List<Leaderboard> getAllLeaderboardsByUserId(Integer id){
     Session session = sf.getCurrentSession();
     
     Query q = session.createQuery("from Leaderboard as l where l.user_id = :u_id");
@@ -44,8 +43,8 @@ public class LeaderDaoImpl implements LeaderDao {
     return leaderboards;
   }
   
-  @Override
-  public List<Leaderboard> getAllLeaderboardsByGameId(int id){
+
+  public List<Leaderboard> getAllLeaderboardsByGameId(Integer id){
     Session session = sf.getCurrentSession();
     
     Query q = session.createQuery("from Leaderboard as l where l.game_id = :g_id");
@@ -69,31 +68,29 @@ public class LeaderDaoImpl implements LeaderDao {
     session.delete(leaderboard);
   }
 
-  @Override
-  public Board getBoard(Integer id) {
-    Session session = sf.getCurrentSession();
+//  public Board getBoard(Integer id) {
+//    Session session = sf.getCurrentSession();
+//
+//    Query q = session.createQuery("from gamestate");
+//    List<Board> boards = q.list();
+//    if (boards.size() < 1) {
+//      return null;
+//    }
+//    return boards.get(0);
+//  }
+//
+//  public void save(Board board) {
+//    Session session = sf.getCurrentSession();
+//
+//    session.save(board);
+//  }
+//
+//  public void delete(Board board) {
+//    Session session = sf.getCurrentSession();
+//
+//    session.delete(board);
+//  }
 
-    Query q = session.createQuery("from gamestate");
-    List<Board> boards = q.list();
-    if (boards.size() < 1) {
-      return null;
-    }
-    return boards.get(0);
-  }
-
-  @Override
-  public void save(Board board) {
-    Session session = sf.getCurrentSession();
-
-    session.save(board);
-  }
-
-  @Override
-  public void delete(Board board) {
-    Session session = sf.getCurrentSession();
-
-    session.delete(board);
-  }
 
 
 }
