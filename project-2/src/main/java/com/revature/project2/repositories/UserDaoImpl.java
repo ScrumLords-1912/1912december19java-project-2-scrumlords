@@ -46,7 +46,7 @@ public class UserDaoImpl {
 
   public Boolean validate(String username, String password) {
     Session session = sf.getCurrentSession();
-    Query checkInfo = session.createQuery("SELECT * from User WHERE username = :username AND password = :password");
+    Query checkInfo = session.createQuery("from User WHERE username = :username AND password = :password");
     checkInfo.setString("username", username);
     checkInfo.setString("password", password);
     return (checkInfo.list().size() > 0);
