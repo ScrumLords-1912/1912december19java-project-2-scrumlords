@@ -8,21 +8,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
+import com.revature.project2.models.Board;
 import com.revature.project2.models.Leaderboard;
 
 @Repository
 @Transactional
 @EnableTransactionManagement
-public class LeaderDaoImpl {
+public class LeaderDaoImpl implements LeaderDao {
 
   private SessionFactory sf;
-  
+
   @Autowired
   public LeaderDaoImpl(SessionFactory sf) {
     this.sf = sf;
   }
-  
-  public List<Leaderboard> getAllLeaderboards(){
+
+  public List<Leaderboard> getAllLeaderboards() {
     Session session = sf.getCurrentSession();
     
     Query q = session.createQuery("from Leaderboard");
@@ -49,17 +50,40 @@ public class LeaderDaoImpl {
     List<Leaderboard> leaderboards = q.list();
     return leaderboards;
   }
-  
+
   public void save(Leaderboard leaderboard) {
     Session session = sf.getCurrentSession();
-    
+
     session.save(leaderboard);
   }
-  
+
   public void delete(Leaderboard leaderboard) {
     Session session = sf.getCurrentSession();
-    
+
     session.delete(leaderboard);
   }
-  
+
+  public Board getBoard(Integer id) {
+    Session session = sf.getCurrentSession();
+
+    Query q = session.createQuery("from gamestate");
+    List<Board> boards = q.list();
+    if (boards.size() < 1) {
+      return null;
+    }
+    return boards.get(0);
+  }
+
+  public void save(Board board) {
+    Session session = sf.getCurrentSession();
+
+    session.save(board);
+  }
+
+  public void delete(Board board) {
+    Session session = sf.getCurrentSession();
+
+    session.delete(board);
+  }
+
 }

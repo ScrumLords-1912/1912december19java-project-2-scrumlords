@@ -26,6 +26,7 @@ public class Leaderboard {
   private Integer score;
   
   @Column(name = "datetime")
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private String datetime;
   
   public Leaderboard() {
