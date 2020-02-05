@@ -16,7 +16,6 @@ import com.revature.project2.models.Leaderboard;
 @EnableTransactionManagement
 public class LeaderDaoImpl implements LeaderDao {
 
-	
   private SessionFactory sf;
 
   @Autowired
@@ -33,6 +32,7 @@ public class LeaderDaoImpl implements LeaderDao {
     return leaderboards;
   }
   
+  @Override
   public List<Leaderboard> getAllLeaderboardsByUserId(Integer id){
     Session session = sf.getCurrentSession();
     
@@ -43,7 +43,7 @@ public class LeaderDaoImpl implements LeaderDao {
     return leaderboards;
   }
   
-
+  @Override
   public List<Leaderboard> getAllLeaderboardsByGameId(Integer id){
     Session session = sf.getCurrentSession();
     
@@ -68,28 +68,28 @@ public class LeaderDaoImpl implements LeaderDao {
     session.delete(leaderboard);
   }
 
-//  public Board getBoard(Integer id) {
-//    Session session = sf.getCurrentSession();
-//
-//    Query q = session.createQuery("from gamestate");
-//    List<Board> boards = q.list();
-//    if (boards.size() < 1) {
-//      return null;
-//    }
-//    return boards.get(0);
-//  }
-//
-//  public void save(Board board) {
-//    Session session = sf.getCurrentSession();
-//
-//    session.save(board);
-//  }
-//
-//  public void delete(Board board) {
-//    Session session = sf.getCurrentSession();
-//
-//    session.delete(board);
-//  }
+  public Board getBoard(Integer id) {
+    Session session = sf.getCurrentSession();
+
+    Query q = session.createQuery("from gamestate");
+    List<Board> boards = q.list();
+    if (boards.size() < 1) {
+      return null;
+    }
+    return boards.get(0);
+  }
+
+  public void save(Board board) {
+    Session session = sf.getCurrentSession();
+
+    session.save(board);
+  }
+
+  public void delete(Board board) {
+    Session session = sf.getCurrentSession();
+
+    session.delete(board);
+  }
 
 
 
