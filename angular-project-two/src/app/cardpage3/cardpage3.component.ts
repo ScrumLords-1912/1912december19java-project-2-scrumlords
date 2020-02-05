@@ -81,9 +81,9 @@ export class Cardpage3Component implements OnInit {
  
   public fivebyfive(){
     this.cardList = [];    
-    this.cols = 5;
+    this.cols = 6;
   
-  for(var i = 1; i <= 25; i++){
+  for(var i = 1; i <= 36; i++){
     let card = new Card();
       var rnd = Math.floor(Math.random() * 19);
       let tarot = this.allCards[rnd];
@@ -99,9 +99,9 @@ export class Cardpage3Component implements OnInit {
 
   public sixbyseven(){
     this.cardList = [];    
-    this.cols = 7;
+    this.cols = 8;
   
-  for(var i = 1; i <= 42; i++){
+  for(var i = 1; i <= 64; i++){
     let card = new Card();
       var rnd = Math.floor(Math.random() * 19);
       let tarot = this.allCards[rnd];
@@ -116,7 +116,7 @@ export class Cardpage3Component implements OnInit {
   }
 }
 
-class Card {
+export class Card {
   id: number;
   imageUrl: string;
   correctImageUrl: string;
