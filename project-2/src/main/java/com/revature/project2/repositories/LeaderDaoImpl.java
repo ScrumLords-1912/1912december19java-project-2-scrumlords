@@ -57,8 +57,8 @@ public class LeaderDaoImpl implements LeaderDao {
   @Override
   public void save(Leaderboard leaderboard) {
     Session session = sf.getCurrentSession();
-
-    session.save(leaderboard);
+    Leaderboard lb = new Leaderboard(leaderboard.getUser_id(), leaderboard.getGame_id(), leaderboard.getScore());
+    session.save(lb);
   }
 
   @Override

@@ -17,8 +17,16 @@ public class GameMatchService {
   private int userID;
   final Integer gameID = 1;
   
+  public GameMatchService() {
+    super();
+  }
+  
   //Makes a new service and saves user id.
   public GameMatchService(int id) {
+    userID = id;
+  }
+  
+  public void setID(int id) {
     userID = id;
   }
   
@@ -43,7 +51,7 @@ public class GameMatchService {
       //Victory condition--------------------------
       //Submit leaderboard score.
       Leaderboard l = scoreBoard(b.getIntArray().size(), b.getTurns());
-      dao.save(l);
+      save(l);
       //Remove board.
       return 2;
     } else {
@@ -53,6 +61,10 @@ public class GameMatchService {
   
   public Leaderboard scoreBoard(int boardSize, int turnCount) {
     int score = (int) Math.max((boardSize * Math.sqrt(boardSize) * 10 - turnCount * 3), 10); //10 min score possible.
-    return new Leaderboard(userID, gameID, score, null);
+    return new Leaderboard(userID, gameID, score);
+  }
+  
+  public void save(Leaderboard l) {
+    dao.save(l);
   }
 }
