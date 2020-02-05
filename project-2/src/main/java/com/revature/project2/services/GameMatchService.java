@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import com.revature.project2.models.Board;
 import com.revature.project2.models.Leaderboard;
-import com.revature.project2.repositories.GameMatchDao;
 import com.revature.project2.repositories.LeaderDao;
 
 @Service
