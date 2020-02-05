@@ -16,11 +16,11 @@ public class LeaderboardService {
     return leaderDao.getAllLeaderboards();
   }
   
-  public List<Leaderboard> getAllByUserId(Integer id){
+  public List<Leaderboard> getAllByUserId(int id){
     return leaderDao.getAllLeaderboardsByUserId(id);
   }
   
-  public List<Leaderboard> getAllByGameId(Integer id){
+  public List<Leaderboard> getAllByGameId(int id){
     return leaderDao.getAllLeaderboardsByGameId(id);
   }
   

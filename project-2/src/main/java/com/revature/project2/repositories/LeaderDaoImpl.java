@@ -25,28 +25,28 @@ public class LeaderDaoImpl implements LeaderDao {
 
   public List<Leaderboard> getAllLeaderboards() {
     Session session = sf.getCurrentSession();
-
-    Query q = session.createQuery("from leaderboard");
+    
+    Query q = session.createQuery("from Leaderboard");
     List<Leaderboard> leaderboards = q.list();
     return leaderboards;
   }
-
-  public List<Leaderboard> getAllLeaderboardsByUserId(Integer id) {
+  
+  public List<Leaderboard> getAllLeaderboardsByUserId(int id){
     Session session = sf.getCurrentSession();
-
-    Query q = session.createQuery("from leaderboard where user_id = :user_id");
-    q.setString("user_id", id.toString());
-
+    
+    Query q = session.createQuery("from Leaderboard as l where l.user_id = :u_id");
+    q.setInteger("u_id", id);
+    
     List<Leaderboard> leaderboards = q.list();
     return leaderboards;
   }
-
-  public List<Leaderboard> getAllLeaderboardsByGameId(Integer id) {
+  
+  public List<Leaderboard> getAllLeaderboardsByGameId(int id){
     Session session = sf.getCurrentSession();
-
-    Query q = session.createQuery("from leaderboard where game_id = :game_id");
-    q.setString("game_id", id.toString());
-
+    
+    Query q = session.createQuery("from Leaderboard as l where l.game_id = :g_id");
+    q.setInteger("g_id", id);
+    
     List<Leaderboard> leaderboards = q.list();
     return leaderboards;
   }
