@@ -5,6 +5,7 @@ import com.revature.project2.models.Board;
 import com.revature.project2.models.Leaderboard;
 
 public interface LeaderDao {
+
 //  //Leaderboard functionality
 //  public List<Leaderboard> getAllLeaderboards();
 //  public List<Leaderboard> getAllLeaderboardsByUserId(Integer id);

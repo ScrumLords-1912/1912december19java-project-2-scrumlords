@@ -16,6 +16,7 @@ import com.revature.project2.models.Leaderboard;
 @EnableTransactionManagement
 public class LeaderDaoImpl implements LeaderDao {
 
+	
   private SessionFactory sf;
 
   @Autowired
@@ -23,6 +24,7 @@ public class LeaderDaoImpl implements LeaderDao {
     this.sf = sf;
   }
 
+  @Override
   public List<Leaderboard> getAllLeaderboards() {
     Session session = sf.getCurrentSession();
     
@@ -41,6 +43,7 @@ public class LeaderDaoImpl implements LeaderDao {
     return leaderboards;
   }
   
+
   public List<Leaderboard> getAllLeaderboardsByGameId(Integer id){
     Session session = sf.getCurrentSession();
     
@@ -51,12 +54,14 @@ public class LeaderDaoImpl implements LeaderDao {
     return leaderboards;
   }
 
+  @Override
   public void save(Leaderboard leaderboard) {
     Session session = sf.getCurrentSession();
 
     session.save(leaderboard);
   }
 
+  @Override
   public void delete(Leaderboard leaderboard) {
     Session session = sf.getCurrentSession();
 
@@ -85,5 +90,7 @@ public class LeaderDaoImpl implements LeaderDao {
 //
 //    session.delete(board);
 //  }
+
+
 
 }

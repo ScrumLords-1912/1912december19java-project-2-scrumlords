@@ -18,7 +18,7 @@ gameId: number;
   constructor(public connection: ConnectionService) { }
 
   ngOnInit() {
-    this.gameId = 0;
+    this.gameId = 1;
     this.populateUserScores();
     this.populateGlobalScores(this.gameId);
   }
