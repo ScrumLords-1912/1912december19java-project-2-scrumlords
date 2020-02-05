@@ -34,7 +34,10 @@ public class Leaderboard {
   }
   
 
-
+  public Leaderboard(Integer user_id, Integer game_id, Integer score, String datetime) {
+    this(0, user_id, game_id, score, datetime);
+  }
+  
   public Leaderboard(Integer id, Integer user_id, Integer game_id, Integer score, String datetime) {
     super();
     this.id = id;
