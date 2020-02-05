@@ -28,12 +28,12 @@ public class LeaderboardController {
   }
   
   @GetMapping("/users/{id}")
-  public List<Leaderboard> getAllByUserId(@PathVariable int id){
+  public List<Leaderboard> getAllByUserId(@PathVariable(name = "id") Integer id){
     return leaderboardService.getAllByUserId(id);
   }
   
   @GetMapping("/games/{id}")
-  public List<Leaderboard> getAllByGameId(@PathVariable int id){
+  public List<Leaderboard> getAllByGameId(@PathVariable(name = "id") Integer id){
     return leaderboardService.getAllByGameId(id);
   }
   
@@ -44,8 +44,8 @@ public class LeaderboardController {
   }
   
   @PostMapping("/delete/{uid}/{gid}/{score}")
-  public void delete(@RequestBody Leaderboard leaderboard, @PathVariable int uid,
-      @PathVariable int gid, @PathVariable int score) {
+  public void delete(@RequestBody Leaderboard leaderboard, @PathVariable(name = "uid") Integer uid,
+      @PathVariable(name = "gid") Integer gid, @PathVariable(name = "score") Integer score) {
     leaderboard.setUser_id(uid);
     leaderboard.setGame_id(gid);
     leaderboard.setScore(score);
