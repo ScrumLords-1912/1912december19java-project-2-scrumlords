@@ -7,7 +7,6 @@ import { Cardpage3Component } from './cardpage3/cardpage3.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CarouselComponent } from './carousel/carousel.component';
-import { Cardpage3Component } from './cardpage3/cardpage3.component';
 
 
 const routes: Routes = [
