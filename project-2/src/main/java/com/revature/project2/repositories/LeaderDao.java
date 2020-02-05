@@ -7,8 +7,8 @@ import com.revature.project2.models.Leaderboard;
 public interface LeaderDao {
   //Leaderboard functionality
   public List<Leaderboard> getAllLeaderboards();
-  public List<Leaderboard> getAllLeaderboardsByUserId(Integer id);
-  public List<Leaderboard> getAllLeaderboardsByGameId(Integer id);
+  public List<Leaderboard> getAllLeaderboardsByUserId(int id);
+  public List<Leaderboard> getAllLeaderboardsByGameId(int id);
   public void save(Leaderboard leaderboard);
   public void delete(Leaderboard leaderboard);
   
