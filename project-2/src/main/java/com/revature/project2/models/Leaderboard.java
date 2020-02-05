@@ -2,11 +2,19 @@ package com.revature.project2.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "leaderboard")
 public class Leaderboard {
+  
+  @Id
+  @Column(name = "id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
   
   @Column(name = "user_id")
   private Integer user_id;
@@ -24,11 +32,23 @@ public class Leaderboard {
     super();
   }
   
-  public Leaderboard(Integer user_id, Integer game_id, Integer score, String datetime) {
+
+
+  public Leaderboard(Integer id, Integer user_id, Integer game_id, Integer score, String datetime) {
+    super();
+    this.id = id;
     this.user_id = user_id;
     this.game_id = game_id;
     this.score = score;
     this.datetime = datetime;
+  }
+
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public Integer getUser_id() {
@@ -65,10 +85,7 @@ public class Leaderboard {
 
   @Override
   public String toString() {
-    return "Leaderboard [user_id=" + user_id + ", game_id=" + game_id + ", score=" + score
-        + ", datetime=" + datetime + "]";
+    return "Leaderboard [id=" + id + ", user_id=" + user_id + ", game_id=" + game_id + ", score="
+        + score + ", datetime=" + datetime + "]";
   }
-  
-  
-
 }

@@ -25,7 +25,7 @@ public class LeaderDaoImpl {
   public List<Leaderboard> getAllLeaderboards(){
     Session session = sf.getCurrentSession();
     
-    Query q = session.createQuery("from leaderboard");
+    Query q = session.createQuery("from Leaderboard");
     List<Leaderboard> leaderboards = q.list();
     return leaderboards;
   }
@@ -33,7 +33,7 @@ public class LeaderDaoImpl {
   public List<Leaderboard> getAllLeaderboardsByUserId(Integer id){
     Session session = sf.getCurrentSession();
     
-    Query q = session.createQuery("from leaderboard where user_id = :user_id");
+    Query q = session.createQuery("from Leaderboard where user_id = :user_id");
     q.setString("user_id", id.toString());
     
     List<Leaderboard> leaderboards = q.list();
