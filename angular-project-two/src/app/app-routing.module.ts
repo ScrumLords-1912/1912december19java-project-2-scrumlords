@@ -5,11 +5,17 @@ import { AuthGuard } from './auth.guard';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { FullscreenOverlayContainer } from '@angular/cdk/overlay';
 //import { Cardpage3Component } from './cardpage3/cardpage3.component';
 
 
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo:'login',
+    pathMatch: 'full',
+  },
   {
     path: 'login',
     component: LoginComponent,
