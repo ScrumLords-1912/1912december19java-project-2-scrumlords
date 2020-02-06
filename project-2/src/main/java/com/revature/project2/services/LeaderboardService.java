@@ -4,13 +4,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.revature.project2.models.Leaderboard;
-import com.revature.project2.repositories.LeaderDaoImpl;
+import com.revature.project2.repositories.LeaderDao;
 
 @Service
 public class LeaderboardService {
 
   @Autowired //not needed?
-  LeaderDaoImpl leaderDao;
+  LeaderDao leaderDao;
   
   public List<Leaderboard> getAll(){
     return leaderDao.getAllLeaderboards();
