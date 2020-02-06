@@ -27,6 +27,7 @@ export class UserService {
         if (response) {
           this.isLoggedIn = true;
           this.loggedInUser = loggingInAsUser;
+          this.router.navigateByUrl('/leaderboard');
         } else {
           this.isLoggedIn = false;
           this.loggedInUser = new User(0, "", "");
