@@ -13,8 +13,6 @@ import javax.persistence.Table;
 @Table(name = "gamestate")
 public class Board {
   
-  final Integer gameID = 1;
-  
   @Id
   @Column(name = "user_id")
   private Integer userId;
@@ -70,8 +68,10 @@ public class Board {
   public List<Integer> getIntArray() {
     List<Integer> list = new ArrayList<Integer>();
     String[] splits = boardArray.split(",");
+    System.out.println("Splits:" + splits.toString());
     for (String split: splits) {
-      list.add(Integer.getInteger(split));
+      System.out.println("String: " + split + " turns to: " + Integer.parseInt(split));
+      list.add(Integer.parseInt(split));
     }
     return list;
   }
@@ -111,6 +111,28 @@ public class Board {
     return boardArray.get(newPosition) * 10 + matchFlag;
   }
   
+  public List<Integer> getHiddenIntArray() {
+    List<Integer> list = new ArrayList<Integer>();
+    String[] splits = boardArray.split(",");
+    //Only time card isn't hidden is if previousposition has been chosen.
+    int spotCheck = -1;
+    if (previousPosition != null) {
+      spotCheck = previousPosition;
+    }
+    
+    for (int i = 0; i < splits.length; i++) {
+      int value = Integer.parseInt(splits[i]);
+      if (i == spotCheck) {
+        list.add(value);
+      } else if (value == -1) {
+        list.add(null);
+      } else {
+        list.add(-1);
+      }
+    }
+    return list;
+  }
+  
 
   public Integer getUserId() {
     return userId;
@@ -134,6 +156,12 @@ public class Board {
 
   public void setPreviousPosition(Integer previousPosition) {
     this.previousPosition = previousPosition;
+  }
+
+  @Override
+  public String toString() {
+    return "Board [userId=" + userId + ", boardArray=" + boardArray + ", turns=" + turns
+        + ", previousPosition=" + previousPosition + "]";
   }
   
   

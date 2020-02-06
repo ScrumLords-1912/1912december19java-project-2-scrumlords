@@ -37,7 +37,7 @@ public class GameMatchService {
   }
   
   //Returns current board state.
-  public Board getGame() {
+  public Board getBoard() {
     //MIGHT BE NULL, so return null if no game exists.
     return dao.getBoard(userID);
   }
@@ -51,8 +51,9 @@ public class GameMatchService {
       //Victory condition--------------------------
       //Submit leaderboard score.
       Leaderboard l = scoreBoard(b.getIntArray().size(), b.getTurns());
-      save(l);
+      dao.save(l);
       //Remove board.
+      dao.delete(b);
       return 2;
     } else {
       return data;
@@ -64,7 +65,4 @@ public class GameMatchService {
     return new Leaderboard(userID, gameID, score);
   }
   
-  public void save(Leaderboard l) {
-    dao.save(l);
-  }
 }
