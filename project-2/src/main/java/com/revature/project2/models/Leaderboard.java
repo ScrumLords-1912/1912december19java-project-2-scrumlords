@@ -1,5 +1,6 @@
 package com.revature.project2.models;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,25 +27,23 @@ public class Leaderboard {
   private Integer score;
   
   @Column(name = "datetime")
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private String datetime;
+  private Date datetime;
   
   public Leaderboard() {
     super();
   }
-  
 
-  public Leaderboard(Integer user_id, Integer game_id, Integer score, String datetime) {
-    this(0, user_id, game_id, score, datetime);
+  public Leaderboard(Integer user_id, Integer game_id, Integer score) {
+    this(0, user_id, game_id, score);
   }
   
-  public Leaderboard(Integer id, Integer user_id, Integer game_id, Integer score, String datetime) {
+  public Leaderboard(Integer id, Integer user_id, Integer game_id, Integer score) {
     super();
     this.id = id;
     this.user_id = user_id;
     this.game_id = game_id;
     this.score = score;
-    this.datetime = datetime;
+    this.datetime = new Date();
   }
 
   public Integer getId() {
@@ -80,10 +79,10 @@ public class Leaderboard {
   }
 
   public String getDatetime() {
-    return datetime;
+    return datetime.toString();
   }
 
-  public void setDatetime(String datetime) {
+  public void setDatetime(Date datetime) {
     this.datetime = datetime;
   }
 
