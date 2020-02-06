@@ -14,8 +14,7 @@ export class UserService {
   public loggedInUser: User = new User(0, '', '');
 
   register(id:number, username: string, password: string){
-    this.http.post('http://ec2-3-90-146-246.compute-1.amazonaws.com:8081/project-2/login/create-account', new User(id, username, password))
-    .subscribe((response)=>{
+    this.http.post('http://ec2-3-90-146-246.compute-1.amazonaws.com:8081/project-2/login/create-account', new User(id, username, password))    .subscribe((response)=>{
       console.log(`registerd as user ${response}`);
     });
   }
@@ -35,7 +34,7 @@ export class UserService {
   }
 
   updateProfile(user: User) {
-    this.http.post('http://localhost:8080/profile', user)
+    this.http.post('http://ec2-3-90-146-246.compute-1amazonaws.com:8081/profile', user)
       .subscribe((response) => {
         console.log(`this is the response = ${response}`);
       });

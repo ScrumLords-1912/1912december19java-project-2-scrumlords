@@ -49,7 +49,6 @@ export class ProfileComponent implements OnInit {
   updateInfo() {
     this.pass=0;
     this.fail=0;
-    console.log("Hitting update button");
     this.user.password = this.password;
     
     this.service.updateProfile(this.user);
@@ -62,11 +61,6 @@ export class ProfileComponent implements OnInit {
       this.fail = 1;
     }
     */
-  }
-
-  close() {
-    this.pass = 1;
-    this.fail = 1;
   }
 
 }
