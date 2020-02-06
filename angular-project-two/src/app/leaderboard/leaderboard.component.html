@@ -4,9 +4,9 @@
 <h1>LeaderBoard</h1>
 
 
-<ngb-tabset type="pills">
+<ngb-tabset type="pills" (tabChange)="switchGame($event)">
     <div class="container-fluid">
-        <ngb-tab title="Card Match" (click)="switchGame(1)">
+        <ngb-tab title="Card Match" [id]="1">
             <ng-template ngbTabContent>
                 <div class="col-12 col-lg-6">
                     <table>
@@ -40,8 +40,8 @@
                 </div>
             </ng-template>
         </ngb-tab>
-        <ngb-tab title="Cookie Clicker 5000" (click)="switchGame(2)">
-            <ng-template ngbTabContent>>
+        <ngb-tab title="Cookie Clicker 5000" [id]="2">
+            <ng-template ngbTabContent>
                 <div class="col-12 col-lg-6">
                     <table>
                         <thead>
