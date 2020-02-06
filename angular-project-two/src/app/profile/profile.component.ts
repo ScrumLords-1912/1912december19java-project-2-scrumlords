@@ -39,11 +39,11 @@ export class ProfileComponent implements OnInit {
   constructor(private service: UserService) { }
 
   alerts: Alert[];
-  private user: User;
-  private username: string;
-  private password: string;
-  private pass: number = 0;
-  private fail: number = 0;
+  user: User;
+  username: string;
+  password: string;
+  pass: number = 0;
+  fail: number = 0;
   //this.service.loggedInUser.id;
 
   ngOnInit() {
