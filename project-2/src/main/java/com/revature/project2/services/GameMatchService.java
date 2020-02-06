@@ -56,6 +56,7 @@ public class GameMatchService {
       dao.delete(b);
       return 2;
     } else {
+      dao.update(b);
       return data;
     }
   }

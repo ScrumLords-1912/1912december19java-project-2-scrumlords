@@ -68,9 +68,7 @@ public class Board {
   public List<Integer> getIntArray() {
     List<Integer> list = new ArrayList<Integer>();
     String[] splits = boardArray.split(",");
-    System.out.println("Splits:" + splits.toString());
     for (String split: splits) {
-      System.out.println("String: " + split + " turns to: " + Integer.parseInt(split));
       list.add(Integer.parseInt(split));
     }
     return list;
@@ -79,27 +77,28 @@ public class Board {
   //Returns card number x 10 + either 0-no match or 1-match or 2-finish. Use % and / to extract info.
   //Returns -1 if invalid move (Out of bounds, or matched already)
   public int match(int newPosition) {
-    List<Integer> boardArray = getIntArray();
+    List<Integer> boardIntArray = getIntArray();
     //Check if newPosition is valid.
-    if (newPosition < 0 || newPosition >= boardArray.size() || boardArray.get(newPosition) == -1) {
+    if (newPosition < 0 || newPosition >= boardIntArray.size() || boardIntArray.get(newPosition) == -1) {
       return -1;
     }
+    int cardValue = boardIntArray.get(newPosition);
     int matchFlag = 0;
     if (previousPosition == null) { //First Guess
       previousPosition = newPosition;
     } else {//Second Guess, see if matches.
       turns++;
-      if (previousPosition != newPosition && boardArray.get(previousPosition) == boardArray.get(newPosition)) {
+      if (previousPosition != newPosition && boardIntArray.get(previousPosition) == boardIntArray.get(newPosition)) {
         //Got a match.
         matchFlag = 1;
-        boardArray.set(newPosition, -1);
-        boardArray.set(previousPosition, -1);
-        
+        boardIntArray.set(newPosition, -1);
+        boardIntArray.set(previousPosition, -1);
+        boardArray = arrayToString(boardIntArray);
         //Check if game finished.
-        for(int i = 0; i < boardArray.size(); i++) {
-          if (boardArray.get(i) != -1) {
+        for(int i = 0; i < boardIntArray.size(); i++) {
+          if (boardIntArray.get(i) != -1) {
             break;
-          } else if (i == boardArray.size() - 1) {
+          } else if (i == boardIntArray.size() - 1) {
             //Victory condition in service layer
             return 2; //End of game, 2 signifies finish.
           }
@@ -107,8 +106,7 @@ public class Board {
       }
       previousPosition = null;
     }
-    
-    return boardArray.get(newPosition) * 10 + matchFlag;
+    return cardValue * 10 + matchFlag;
   }
   
   public List<Integer> getHiddenIntArray() {

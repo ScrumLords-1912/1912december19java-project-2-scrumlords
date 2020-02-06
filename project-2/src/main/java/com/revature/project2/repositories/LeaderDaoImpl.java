@@ -96,6 +96,10 @@ public class LeaderDaoImpl implements LeaderDao {
     session.delete(board);
   }
 
-
+  public void update(Board board) {
+    Session session = sf.getCurrentSession();
+    
+    session.saveOrUpdate(board);
+  }
 
 }

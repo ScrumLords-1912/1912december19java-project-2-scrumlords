@@ -44,4 +44,11 @@ public class GameMatchController {
     return "Success";
   }
   
+  @PostMapping("/play/{userID}/{position}")
+  public int playBoard(@PathVariable(name = "userID") Integer userID, 
+      @PathVariable(name = "position") Integer position) {
+    gms.setID(userID);
+    return gms.move(position);
+  }
+  
 }
