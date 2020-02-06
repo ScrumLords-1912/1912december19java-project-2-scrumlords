@@ -17,4 +17,5 @@ public interface LeaderDao {
   public Board getBoard(Integer id);
   public void save(Board board);
   public void delete(Board board);
+  public void update(Board board);
 }

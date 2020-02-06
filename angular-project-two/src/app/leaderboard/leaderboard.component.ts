@@ -32,6 +32,7 @@ gameId: number;
 
   async populateGlobalScores(gameId: number) {
     this.globalScores = await this.connection.getAllScores(gameId);
+    this.globalScores.filter(obj => (obj.game_id === this.gameId));
     this.globalScores.sort(function(a,b) {
       return b.score - a.score;});
   }

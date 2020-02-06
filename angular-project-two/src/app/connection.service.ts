@@ -13,9 +13,9 @@ export class ConnectionService {
 
   constructor(private http: HttpClient, private user: UserService) { }
 
-  baseUrl = 'http://localhost:8080/leaderboards';
+  baseUrl = 'http://ec2-3-90-146-246.compute-1.amazonaws.com:8081/project-2/leaderboards';
 
-  gameUrl = 'http://localhost:8080/gamecard';
+  gameUrl = 'http://ec2-3-90-146-246.compute-1.amazonaws.com:8081/project-2/gamecard';
 
   getUserScores(): Promise<Scores[]> {
     return this.http.get<Scores[]>(`${this.baseUrl}/users/${this.user.loggedInUser.id}`).toPromise();
