@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import com.revature.project2.models.User;
 import com.revature.project2.services.UserService;
 
-@Controller
+@RestController
 @CrossOrigin
 public class UserController {
 
@@ -37,8 +38,8 @@ public class UserController {
   }
 
   @PostMapping("/login")
-  public Boolean validate(@RequestBody String username, String password) {
-    return userService.validate(username, password);
+  public Boolean validate(@RequestBody User user) {
+    return userService.validate(user.getUsername(), user.getPassword());
   }
   
 }
