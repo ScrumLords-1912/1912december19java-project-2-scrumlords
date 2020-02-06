@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Injectable, RootRenderer } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   public isLoggedIn: boolean = false;
   public loggedInUser: User = new User(0, '', '');
@@ -26,7 +27,6 @@ export class UserService {
         if (response) {
           this.isLoggedIn = true;
           this.loggedInUser = loggingInAsUser;
-
         } else {
           this.isLoggedIn = false;
           this.loggedInUser = new User(0, "", "");
@@ -34,18 +34,13 @@ export class UserService {
       });
   }
 
-  /*
-  updateProfile(User user) {
-    this.http.post('http://localhost:9999', user)
-      .subscribe((response: boolean) = > {
-        if (response) {
-          
-        } else {
-          
-        }
-      })
+  updateProfile(user: User) {
+    this.http.post('http://localhost:8080/profile', user)
+      .subscribe((response) => {
+        console.log(`this is the response = ${response}`);
+      });
+
   }
-  */
 
   logOUt(){
     this.isLoggedIn = false;

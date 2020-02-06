@@ -32,7 +32,7 @@ public class UserController {
     userService.save(user);
   }
 
-  @PostMapping("/profile/update-account")
+  @PostMapping("/profile")
   public void update(@RequestBody User user) {
     userService.update(user);
   }
