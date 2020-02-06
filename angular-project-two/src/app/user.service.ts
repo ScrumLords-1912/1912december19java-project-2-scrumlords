@@ -22,10 +22,12 @@ export class UserService {
   attemptLogIn(id:number, username: string, password: string) {
     const loggingInAsUser = new User(id ,username, password)
     this.http.post('http://localhost:8080/project-2/login', loggingInAsUser /**new User(username, password)**/)
-      .subscribe((response: boolean) => {
-        if (response) {
+      .subscribe((response: number) => {
+        if (response != 0) {
           this.isLoggedIn = true;
+          loggingInAsUser.id = response;
           this.loggedInUser = loggingInAsUser;
+          console.log(this.loggedInUser);
         } else {
           this.isLoggedIn = false;
           this.loggedInUser = new User(0, "", "");

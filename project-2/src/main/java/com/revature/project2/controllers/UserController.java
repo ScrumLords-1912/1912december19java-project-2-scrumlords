@@ -38,7 +38,7 @@ public class UserController {
   }
 
   @PostMapping("/login")
-  public Boolean validate(@RequestBody User user) {
+  public Integer validate(@RequestBody User user) {
     return userService.validate(user.getUsername(), user.getPassword());
   }
   
