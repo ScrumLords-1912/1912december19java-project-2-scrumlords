@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styles: [
     'a {color:aliceblue;}',
     '#dropdown {color:aliceblue;}',
+    '.nav-tabs{border-bottom:0px}',
   ]
 })
 export class NavbarComponent implements OnInit {
