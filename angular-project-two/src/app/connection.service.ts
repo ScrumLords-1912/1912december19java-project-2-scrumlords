@@ -22,7 +22,6 @@ export class ConnectionService {
   }
 
   getAllScores(gameId: number): Promise<Scores[]> {
-    console.log(`${gameId}`);
     return this.http.get<Scores[]>(`${this.baseUrl}/games/${gameId}`).toPromise();
   }
 
