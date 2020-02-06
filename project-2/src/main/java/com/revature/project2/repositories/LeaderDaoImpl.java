@@ -69,8 +69,13 @@ public class LeaderDaoImpl implements LeaderDao {
   public Board getBoard(Integer id) {
     Session session = sf.getCurrentSession();
 
-    Query q = session.createQuery("from gamestate");
+    Query q = session.createQuery("from Board WHERE userId = :user");
+    q.setInteger("user", id);
     List<Board> boards = q.list();
+    System.out.println("Size:" + boards.size());
+    for (int i = 0; i < boards.size(); i++) {
+      System.out.println("Position " + i + "VALUE: " + boards.get(i));
+    }
     if (boards.size() < 1) {
       return null;
     }
@@ -89,6 +94,10 @@ public class LeaderDaoImpl implements LeaderDao {
     session.delete(board);
   }
 
-
+  public void update(Board board) {
+    Session session = sf.getCurrentSession();
+    
+    session.saveOrUpdate(board);
+  }
 
 }
