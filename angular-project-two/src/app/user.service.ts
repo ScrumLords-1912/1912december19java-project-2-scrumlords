@@ -27,7 +27,6 @@ export class UserService {
           this.isLoggedIn = true;
           loggingInAsUser.id = response;
           this.loggedInUser = loggingInAsUser;
-          console.log(this.loggedInUser);
         } else {
           this.isLoggedIn = false;
           this.loggedInUser = new User(0, "", "");
