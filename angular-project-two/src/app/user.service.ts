@@ -2,6 +2,7 @@ import { Injectable, RootRenderer } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,7 @@ export class UserService {
           this.isLoggedIn = true;
           loggingInAsUser.id = response;
           this.loggedInUser = loggingInAsUser;
+          this.router.navigateByUrl('/leaderboard');
         } else {
           this.isLoggedIn = false;
           this.loggedInUser = new User(0, "", "");
@@ -35,12 +37,8 @@ export class UserService {
       });
   }
 
-  updateProfile(user: User) {
-    this.http.post('http://ec2-3-90-146-246.compute-1amazonaws.com:8081/profile', user)
-      .subscribe((response) => {
-        console.log(`this is the response = ${response}`);
-      });
-
+  updateProfile(user: User) : Observable<any> {
+    return this.http.post<User>('http://ec2-3-90-146-246.compute-1amazonaws.com:8081/project-2/profile', user);
   }
 
   logOUt(){
