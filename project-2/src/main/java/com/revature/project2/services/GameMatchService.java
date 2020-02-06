@@ -33,7 +33,7 @@ public class GameMatchService {
   //Starts a new game.
   public void newGame(int cardPairCount) {
     Board newBoard = new Board(userID, cardPairCount);
-    dao.save(newBoard);
+    dao.update(newBoard);
   }
   
   //Returns current board state.
@@ -53,7 +53,9 @@ public class GameMatchService {
       Leaderboard l = scoreBoard(b.getIntArray().size(), b.getTurns());
       dao.save(l);
       //Remove board.
+      System.out.println("Starting delete");
       dao.delete(b);
+      System.out.println("Ending delete");
       return 2;
     } else {
       dao.update(b);

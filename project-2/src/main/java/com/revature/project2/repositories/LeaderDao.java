@@ -2,6 +2,7 @@ package com.revature.project2.repositories;
 
 import java.util.List;
 import com.revature.project2.models.Board;
+import com.revature.project2.models.Cookie;
 import com.revature.project2.models.Leaderboard;
 
 public interface LeaderDao {
@@ -18,4 +19,8 @@ public interface LeaderDao {
   public void save(Board board);
   public void delete(Board board);
   public void update(Board board);
+  
+  //Cookie Crumbs
+  public Cookie getCookie(Integer id);
+  public void saveOrUpdate(Cookie cookie);
 }

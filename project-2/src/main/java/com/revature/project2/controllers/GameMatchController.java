@@ -18,23 +18,26 @@ public class GameMatchController {
   @Autowired
   private GameMatchService gms;
   
-  @GetMapping("/test/{userID}")
-  public String newGame(@PathVariable(name = "userID") Integer userID){
-    gms.setID(userID);
-    Leaderboard lb = gms.scoreBoard(8, 5);
-    
-    return "complete";
-  }
-  
   @GetMapping("/board/{userID}")
   public List<Integer> getBoard(@PathVariable(name = "userID") Integer userID) {
     gms.setID(userID);
     if (gms.getBoard() == null) {
       return null;
     }
-    System.out.println("Board is" + gms.getBoard());
+
     return gms.getBoard().getHiddenIntArray();
   }
+  
+  @GetMapping("/turn/{userID}")
+  public Integer getTurns(@PathVariable(name = "userID") Integer userID) {
+    gms.setID(userID);
+    if (gms.getBoard() == null) {
+      return null;
+    }
+
+    return gms.getBoard().getTurns();
+  }
+  
   
   @PostMapping("/newgame/{userID}/{cardPairCount}")
   public String newBoard(@PathVariable(name = "userID") Integer userID, 
