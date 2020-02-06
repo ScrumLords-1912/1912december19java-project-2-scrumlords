@@ -51,16 +51,17 @@ export class ProfileComponent implements OnInit {
     this.fail=0;
     this.user.password = this.password;
     
-    this.service.updateProfile(this.user);
-    /*
-    if(this.response.status === 200) {
-      this.service.loggedInUser = this.user;
-      this.pass = 1;
-    }
-    else {
-      this.fail = 1;
-    }
-    */
+    this.service.updateProfile(this.user)
+        .subscribe((response)=>{
+          console.log(`This is the response: ${response}`);
+          //anything in here only happens on success
+          this.service.loggedInUser = this.user;
+          this.pass = 1;
+        }, (error)=>{
+          console.log(`Error response: ${error}`);
+          //anything in here only happens on failure
+          this.fail = 1;
+        });
   }
 
 }
