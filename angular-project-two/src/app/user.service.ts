@@ -38,7 +38,7 @@ export class UserService {
   }
 
   updateProfile(user: User) : Observable<any> {
-    return this.http.post<User>('http://ec2-3-90-146-246.compute-1amazonaws.com:8081/project-2/profile', user);
+    return this.http.post('http://ec2-3-90-146-246.compute-1.amazonaws.com:8081/project-2/profile', user);
   }
 
   logOUt(){
