@@ -30,17 +30,17 @@ const routes: Routes = [
   {
     path: 'leaderboard',
     component: LeaderboardComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'profile',
     component: ProfileComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'info',
     component: CarouselComponent,
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
 ];
 

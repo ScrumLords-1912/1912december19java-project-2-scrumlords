@@ -4,73 +4,81 @@
 <h1>LeaderBoard</h1>
 
 
-<ngb-tabset type="pills">
+<ngb-tabset type="pills" (tabChange)="switchGame($event)">
     <div class="container-fluid">
-        <ngb-tab title="Card Match" (click)="switchGame(1)">
+        <ngb-tab title="Card Match" [id]="1">
             <ng-template ngbTabContent>
-                <div class="col-12 col-lg-6">
-                    <table>
-                        <thead>
-                            <h4>Your Scores</h4>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let score of userScores; let i = index">
-                                <td>#{{(i+1)}}------------------</td>
-                                <td>{{score.score}}</td>
-                                <td>-----------------</td>
-                                <td>{{score.name}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <table>
-                        <thead>
-                            <h4>Global High Scores</h4>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let glScore of globalScores; let i = index">
-                                <td>#{{(i+1)}}------------------</td>
-                                <td>{{glScore.score}}</td>
-                                <td>-----------------</td>
-                                <td>{{glScore.name}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <table class="mx-auto">
+                                <thead>
+                                    <h4>Your Scores</h4>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let score of userScores; let i = index">
+                                        <td>#{{(i+1)}}------------------</td>
+                                        <td>{{score.score}}</td>
+                                        <td>-----------------</td>
+                                        <td>{{score.name}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <table>
+                                <thead>
+                                    <h4>Global High Scores</h4>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let glScore of globalScores; let i = index">
+                                        <td>#{{(i+1)}}-----------------------------</td>
+                                        <td>{{glScore.score}}</td>
+                                        <td>-----------------------------</td>
+                                        <td>{{glScore.name}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </ng-template>
         </ngb-tab>
-        <ngb-tab title="Cookie Clicker 5000" (click)="switchGame(2)">
-            <ng-template ngbTabContent>>
-                <div class="col-12 col-lg-6">
-                    <table>
-                        <thead>
-                            <h4>Your Scores</h4>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let score of userScores; let i = index">
-                                <td>#{{(i+1)}}------------------</td>
-                                <td>{{score.score}}</td>
-                                <td>-----------------</td>
-                                <td>{{score.name}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <table>
-                        <thead>
-                            <h4>Global High Scores</h4>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let glScore of globalScores; let i = index">
-                                <td>#{{(i+1)}}------------------</td>
-                                <td>{{glScore.score}}</td>
-                                <td>-----------------</td>
-                                <td>{{glScore.name}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <ngb-tab title="Cookie Clicker 5000" [id]="2">
+            <ng-template ngbTabContent>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <table class="mx-auto">
+                                <thead>
+                                    <h4>Your Scores</h4>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let score of userScores; let i = index">
+                                        <td>#{{(i+1)}}------------------</td>
+                                        <td>{{score.score}}</td>
+                                        <td>-----------------</td>
+                                        <td>{{score.name}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <table>
+                                <thead>
+                                    <h4>Global High Scores</h4>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let glScore of globalScores; let i = index">
+                                        <td>#{{(i+1)}}-----------------------------</td>
+                                        <td>{{glScore.score}}</td>
+                                        <td>-----------------------------</td>
+                                        <td>{{glScore.name}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </ng-template>
         </ngb-tab>

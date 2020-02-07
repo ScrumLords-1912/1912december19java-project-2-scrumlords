@@ -19,8 +19,8 @@ import com.revature.project2.models.User;
 @EnableTransactionManagement
 public class UserDaoImpl {
   
-    @Autowired
-    private SessionFactory sf;
+  @Autowired
+  private SessionFactory sf;
     
 
   public UserDaoImpl(SessionFactory sf) {
@@ -44,12 +44,20 @@ public class UserDaoImpl {
     session.update(user);
   }
 
-  public Boolean validate(String username, String password) {
+  public Integer validate(String username, String password) {
     Session session = sf.getCurrentSession();
     Query checkInfo = session.createQuery("from User WHERE username = :username AND password = :password");
     checkInfo.setString("username", username);
     checkInfo.setString("password", password);
-    return (checkInfo.list().size() > 0);
+    
+    if (checkInfo.list().size() > 0) {
+      User use = (User) checkInfo.list().get(0);
+      return use.getId();
+    }else {
+      return 0;
+    }
+    
+    
   }  
   
 }
