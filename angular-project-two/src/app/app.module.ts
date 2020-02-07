@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Cardpage3Component } from './cardpage3/cardpage3.component';
 import { AuthGuard } from './auth.guard';
 import { UserService } from './user.service';
+import { Cardpage4Component } from './cardpage4/cardpage4.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { UserService } from './user.service';
     CarouselComponent,
     CardpageComponent,
     Cardpage2Component,
-    Cardpage3Component
+    Cardpage3Component,
+    Cardpage4Component
   ],
   imports: [
     BrowserModule,
