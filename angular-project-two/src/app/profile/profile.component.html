@@ -7,7 +7,7 @@
             <form>
                 <h2 class="text-center text-white">Update Your Password</h2>       
                 <div class="form-group text-center text-white">
-                    <p>Your Current Password = {{password}}</p>
+                    <p>{{this.service.loggedInUser.username}}'s Current Password = {{this.service.loggedInUser.password}}</p>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Password" name="password" [(ngModel)]="password">
@@ -20,10 +20,6 @@
     </div>
 </div>
 
-<div>Current user = {{ user | json }}</div>
-
-<br>
-
 <p class="text-center" *ngIf="pass">
     <ngb-alert type="success" [dismissible]="false">
         <Strong>Success!</Strong> Your update request succeeded!
@@ -35,5 +31,7 @@
         <Strong>Sorry</Strong> Your update request failed.
     </ngb-alert>
 </p>
+
+<br><br>
 
 <app-footer></app-footer>
