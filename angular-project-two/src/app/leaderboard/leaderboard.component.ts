@@ -7,7 +7,8 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-leaderboard',
   templateUrl: './leaderboard.component.html',
-  styles: []
+  styles: ['h4 {text-align: center', 'th {text-align: center}', 
+  'td {text-align: center}', 'h1 {text-align: center}', 'ngb-tab {text-align: center}', '* {color: white}']
 })
 export class LeaderboardComponent implements OnInit {
 

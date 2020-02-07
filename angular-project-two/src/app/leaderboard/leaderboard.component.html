@@ -1,7 +1,7 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
 
-<h1>LeaderBoard</h1>
+<h1 class="d-block p-2 bg-info">Leaderboards</h1>
 
 
 <ngb-tabset type="pills" (tabChange)="switchGame($event)">
@@ -11,31 +11,39 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12 col-lg-6">
-                            <table class="mx-auto">
+                            <h4 class="title">Your Scores</h4>
+                            <table class=" table table-striped mx-auto">
                                 <thead>
-                                    <h4>Your Scores</h4>
+                                    <tr>
+                                        <th scope="col">Rank</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Scores</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let score of userScores; let i = index">
-                                        <td>#{{(i+1)}}------------------</td>
-                                        <td>{{score.score}}</td>
-                                        <td>-----------------</td>
-                                        <td>{{score.name}}</td>
+                                        <td scope="col">#{{(i+1)}}</td>
+                                        <td scope="col">{{score.user.username}}</td>
+                                        <td scope="col">{{score.score}}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="col-12 col-lg-6">
-                            <table>
+                            <h4>Global High Scores</h4>
+                            <table class=" table table-striped mx-auto">
                                 <thead>
-                                    <h4>Global High Scores</h4>
+                                    <tr>
+                                        <th scope="col">Rank</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Scores</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let glScore of globalScores; let i = index">
-                                        <td>#{{(i+1)}}-----------------------------</td>
-                                        <td>{{glScore.score}}</td>
-                                        <td>-----------------------------</td>
-                                        <td>{{glScore.name}}</td>
+                                        <td scope="col">#{{(i+1)}}</td>
+                                        <td scope="col">{{glScore.user.username}}</td>
+                                        <td scope="col">{{glScore.score}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -49,31 +57,39 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12 col-lg-6">
-                            <table class="mx-auto">
+                            <h4>Your Scores</h4>
+                            <table class=" table table-striped mx-auto">
                                 <thead>
-                                    <h4>Your Scores</h4>
+                                    <tr>
+                                        <th scope="col">Rank</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Scores</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let score of userScores; let i = index">
-                                        <td>#{{(i+1)}}------------------</td>
-                                        <td>{{score.score}}</td>
-                                        <td>-----------------</td>
-                                        <td>{{score.name}}</td>
+                                        <td scope="col">#{{(i+1)}}</td>
+                                        <td scope="col">{{score.user.username}}</td>
+                                        <td scope="col">{{score.score}}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="col-12 col-lg-6">
-                            <table>
+                            <h4>Global High Scores</h4>
+                            <table class=" table table-striped mx-auto">
                                 <thead>
-                                    <h4>Global High Scores</h4>
+                                    <tr>
+                                        <th scope="col">Rank</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Scores</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let glScore of globalScores; let i = index">
-                                        <td>#{{(i+1)}}-----------------------------</td>
-                                        <td>{{glScore.score}}</td>
-                                        <td>-----------------------------</td>
-                                        <td>{{glScore.name}}</td>
+                                        <td scope="col">#{{(i+1)}}</td>
+                                        <td scope="col">{{glScore.user.username}}</td>
+                                        <td scope="col">{{glScore.score}}</td>
                                     </tr>
                                 </tbody>
                             </table>
