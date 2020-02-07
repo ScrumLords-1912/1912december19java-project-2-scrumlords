@@ -19,8 +19,8 @@ import com.revature.project2.models.User;
 @EnableTransactionManagement
 public class UserDaoImpl {
   
-    @Autowired
-    private SessionFactory sf;
+  @Autowired
+  private SessionFactory sf;
     
 
   public UserDaoImpl(SessionFactory sf) {
