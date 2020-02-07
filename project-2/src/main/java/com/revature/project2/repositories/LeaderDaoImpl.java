@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 import com.revature.project2.models.Board;
+import com.revature.project2.models.Cookie;
 import com.revature.project2.models.Leaderboard;
 
 @Repository
@@ -75,10 +76,6 @@ public class LeaderDaoImpl implements LeaderDao {
     Query q = session.createQuery("from Board WHERE userId = :user");
     q.setInteger("user", id);
     List<Board> boards = q.list();
-    System.out.println("Size:" + boards.size());
-    for (int i = 0; i < boards.size(); i++) {
-      System.out.println("Position " + i + "VALUE: " + boards.get(i));
-    }
     if (boards.size() < 1) {
       return null;
     }
@@ -105,5 +102,23 @@ public class LeaderDaoImpl implements LeaderDao {
     
     session.saveOrUpdate(board);
   }
+  
+  public Cookie getCookie(Integer userID) {
+    Session session = sf.getCurrentSession();
+    
+    Query q = session.createQuery("from Cookie WHERE userId = :user");
+    q.setInteger("user", userID);
+    List<Cookie> pan = q.list();
+    if (pan.size() < 1) {
+      return null;
+    }
+    return pan.get(0);
+  }
 
+  public void saveOrUpdate(Cookie cookie) {
+    Session session = sf.getCurrentSession();
+    
+    session.saveOrUpdate(cookie);
+  }
+  
 }
