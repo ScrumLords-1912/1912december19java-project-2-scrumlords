@@ -39,7 +39,7 @@ public class GameMatchController {
   }
   
   
-  @PostMapping("/newgame/{userID}/{cardPairCount}")
+  @GetMapping("/cardlist/{userID}/{cardPairCount}")
   public String newBoard(@PathVariable(name = "userID") Integer userID, 
       @PathVariable(name = "cardPairCount") Integer cardPairCount) {
     gms.setID(userID);
@@ -47,7 +47,7 @@ public class GameMatchController {
     return "Success";
   }
   
-  @PostMapping("/play/{userID}/{position}")
+  @GetMapping("/clickedcardoutcome/{userID}/{position}")
   public int playBoard(@PathVariable(name = "userID") Integer userID, 
       @PathVariable(name = "position") Integer position) {
     gms.setID(userID);
