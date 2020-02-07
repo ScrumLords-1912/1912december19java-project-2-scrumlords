@@ -15,6 +15,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(private service: UserService, private router: Router) { }
 
+  id: number = this.service.loggedInUser.id;
+
   ngOnInit() {
   }
 
