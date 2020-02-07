@@ -23,7 +23,7 @@ public class LeaderDaoImpl implements LeaderDao {
     this.sf = sf;
   }
 
-  
+  @Override
   public List<Leaderboard> getAllLeaderboards() {
     Session session = sf.getCurrentSession();
     
@@ -54,18 +54,21 @@ public class LeaderDaoImpl implements LeaderDao {
     return leaderboards;
   }
 
+  @Override
   public void save(Leaderboard leaderboard) {
     Session session = sf.getCurrentSession();
     Leaderboard lb = new Leaderboard(leaderboard.getUser_id(), leaderboard.getGame_id(), leaderboard.getScore());
     session.save(lb);
   }
 
+  @Override
   public void delete(Leaderboard leaderboard) {
     Session session = sf.getCurrentSession();
 
     session.delete(leaderboard);
   }
 
+  @Override
   public Board getBoard(Integer id) {
     Session session = sf.getCurrentSession();
 
@@ -82,18 +85,21 @@ public class LeaderDaoImpl implements LeaderDao {
     return boards.get(0);
   }
 
+  @Override
   public void save(Board board) {
     Session session = sf.getCurrentSession();
 
     session.save(board);
   }
 
+  @Override
   public void delete(Board board) {
     Session session = sf.getCurrentSession();
 
     session.delete(board);
   }
 
+  @Override
   public void update(Board board) {
     Session session = sf.getCurrentSession();
     

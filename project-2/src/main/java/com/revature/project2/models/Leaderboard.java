@@ -1,12 +1,19 @@
 package com.revature.project2.models;
 
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "leaderboard")
@@ -29,6 +36,19 @@ public class Leaderboard {
   @Column(name = "datetime")
   private Date datetime;
   
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "user_id", insertable = false, updatable = false)
+  @JsonIgnoreProperties("leaderboard")
+  private User user;
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
+
   public Leaderboard() {
     super();
   }
