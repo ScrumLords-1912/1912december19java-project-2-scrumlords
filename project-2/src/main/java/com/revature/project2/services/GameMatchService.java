@@ -36,6 +36,10 @@ public class GameMatchService {
     dao.update(newBoard);
   }
   
+  public void saveBoard(Leaderboard l) {
+    dao.save(l);
+  }
+  
   //Returns current board state.
   public Board getBoard() {
     //MIGHT BE NULL, so return null if no game exists.

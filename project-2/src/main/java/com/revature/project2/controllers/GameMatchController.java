@@ -38,6 +38,12 @@ public class GameMatchController {
     return gms.getBoard().getTurns();
   }
   
+  @GetMapping("/test")
+  public String testScore() {
+    Leaderboard lb = gms.scoreBoard(3, 5);
+    return "Success";
+  }
+  
   
   @GetMapping("/cardlist/{userID}/{cardPairCount}")
   public String newBoard(@PathVariable(name = "userID") Integer userID, 
