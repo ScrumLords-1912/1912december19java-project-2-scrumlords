@@ -25,7 +25,7 @@ gameId: number;
 
   async populateUserScores() {
     this.userScores = await this.connection.getUserScores();
-    this.userScores.filter(obj => (obj.game_id === this.gameId));
+    this.userScores = this.userScores.filter(obj => (obj.game_id === this.gameId));
     this.userScores.sort(function(a,b) {
       return b.score - a.score;});
   }
