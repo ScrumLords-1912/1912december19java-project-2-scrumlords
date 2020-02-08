@@ -163,7 +163,7 @@ public draw4by4grid(){
   this.cardList = [];    //empty  
   this.cols = 4;
 
-  for(var i = 1; i <= 16; i++){
+  for(var i = 0; i < 16; i++){
     let card = new Card();
     card.id = i;
     card.imageUrl = this.backimg;
