@@ -156,7 +156,8 @@ previousCard: Card;
 public sixbysix(){
   this.cardList = [];    //empty  
   this.cols = 6;
-    
+  this.connection.sendUserPreferredBoardSize(6);  
+  /*
   this.connection.sendUserPreferredBoardSize(6).then((confirm)=>{
     console.log("Received " + confirm);
       for(var i = 1; i <= 36; i++){
@@ -171,6 +172,7 @@ public sixbysix(){
       }
         
   });
+  */
 }
 
 }

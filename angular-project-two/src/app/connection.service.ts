@@ -28,7 +28,16 @@ export class ConnectionService {
   sendUserPreferredBoardSize2(columns: number){
     var user_id = this.user.loggedInUser.id;
     var cardPairCount = (columns * columns) / 2;
-    this.http.get(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`).subscribe((response: string)=>{
+    /*
+    const requestOptions = Object.assign(
+      {}, 
+      { responseType: 'json' }, 
+      { observe: 'body' as HttpObserve }
+    );
+
+    this.httpClient.request('GET', './mockjson.json', requestOptions)
+    */
+    this.http.get(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`, { responseType: 'json' }).subscribe((response: JSON)=>{
       console.log(`recieved ${response}`);
     });
   }
@@ -36,7 +45,12 @@ export class ConnectionService {
   sendUserPreferredBoardSize(columns: number){
     var user_id = this.user.loggedInUser.id;
     var cardPairCount = (columns * columns) / 2;
+    /*
     return this.http.get<ResponseBoardSize>(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`).toPromise();
+    */
+   this.http.get(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`, { responseType: 'text' }).subscribe((response: string)=>{
+    console.log(`recieved ${response}`);
+  });
  }
 
 //changed to int
