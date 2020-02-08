@@ -134,8 +134,9 @@ previousCard: Card;
   public fourbyfour(){
     this.cardList = [];    //empty  
     this.cols = 4;
-    
-    this.connection.sendUserPreferredBoardSize(4).then((confirm)=>{
+    this.connection.sendUserPreferredBoardSize2(4);
+    /*
+    this.connection.sendUserPreferredBoardSize2(4).then((confirm)=>{
       console.log("Received " + confirm);
       for(var i = 1; i <= 16; i++){
         let card = new Card();
@@ -149,6 +150,7 @@ previousCard: Card;
       }
         
     });
+    */
 }
 
 public sixbysix(){
