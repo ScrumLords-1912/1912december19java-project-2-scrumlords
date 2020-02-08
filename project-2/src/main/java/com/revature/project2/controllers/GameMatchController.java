@@ -3,6 +3,7 @@ package com.revature.project2.controllers;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import com.revature.project2.models.Leaderboard;
 import com.revature.project2.services.GameMatchService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/gamecard")
 @Scope("session")
 public class GameMatchController {
