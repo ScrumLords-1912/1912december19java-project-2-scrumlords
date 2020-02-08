@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
@@ -8,6 +8,7 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { FullscreenOverlayContainer } from '@angular/cdk/overlay';
+import { CookieClickerComponent } from './cookie-clicker/cookie-clicker.component';
 //import { Cardpage3Component } from './cardpage3/cardpage3.component';
 
 
@@ -35,6 +36,11 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'cookie-clicker',
+    component: CookieClickerComponent,
     canActivate: [AuthGuard]
   },
   {
