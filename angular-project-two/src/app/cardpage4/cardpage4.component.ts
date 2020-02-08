@@ -79,6 +79,7 @@ previousCard: Card;
 
   public open(event: any, cardID: number) {
     
+    var self = this;
     // get the card clicked
     for(var i = 0; i < this.cardList.length; i++){
       if(this.cardList[i].id  == cardID){
@@ -87,48 +88,52 @@ previousCard: Card;
           console.log("Received " + outcome);
           // implication of this is when the response comes in, we divide the number brought in by 10, for example either 2.0 or 2.1
           let result: number = 0;
-          let idofcard: Number = 0;
-          /*
+          let idofcard: number = 0;
+          
           result = outcome;
           idofcard = Math.floor(result / 10); //  21/10
           var matchresult = result % 10; //20 % 10 = 0
-
-          //DETERMINE THE CARD TO SHOW
-          for(var j = 0; j < this.allCards.length; j++){
-            if(this.allCards[j].id  == idofcard){
-              //show the image
-              this.cardList[i].imageUrl = this.allCards[j].image;               
-              // determine if a match occured
-              if(matchresult == 0 && this.previousCard == undefined) {
-                this.previousCard = this.cardList[i];
-              }
-              else if(matchresult == 0 && this.previousCard != undefined) {
-                this.timerFlipDown(this.cardList[i], this.previousCard);
-                this.previousCard = undefined;
-              }
-              else if(matchresult == 1 && this.previousCard == undefined) {
-                //this should not happen
-                this.timerRemove(this.cardList[i]);
-              }
-              else if(matchresult == 1 && this.previousCard != undefined) {
-                this.timerRemoveBoth(this.cardList[i], this.previousCard);
-                this.previousCard = undefined;
-              }
-              else if(matchresult == 2){
-                // make the board disappear
-                this.cols = 0;
-                //pop up an alert saying game over
-                alert("Game over");
-
-              }
-            }
-          }   
-          */       
+          console.log("The ID of the card clicked is " + idofcard + ". position of card chosen is " + i);
+          self.performOutcome(idofcard, matchresult, i);
+                 
         });
         //this.cardList[i].imageUrl = this.cardList[i].correctImageUrl;
         break;
       }
     }      
+  }
+
+  public performOutcome(idofcard: number, matchresult: number, cardposition: number){
+    //DETERMINE THE CARD TO SHOW
+    for(var j = 0; j < this.allCards.length; j++){
+      if(this.allCards[j].id  == idofcard){
+        //show the image
+        this.cardList[cardposition].imageUrl = this.allCards[j].image;               
+        // determine if a match occured
+        if(matchresult == 0 && this.previousCard == undefined) {
+          this.previousCard = this.cardList[cardposition];
+        }
+        else if(matchresult == 0 && this.previousCard != undefined) {
+          this.timerFlipDown(this.cardList[cardposition], this.previousCard);
+          this.previousCard = undefined;
+        }
+        else if(matchresult == 1 && this.previousCard == undefined) {
+          //this should not happen
+          this.timerRemove(this.cardList[cardposition]);
+        }
+        else if(matchresult == 1 && this.previousCard != undefined) {
+          this.timerRemoveBoth(this.cardList[cardposition], this.previousCard);
+          this.previousCard = undefined;
+        }
+        else if(matchresult == 2){
+          // make the board disappear
+          this.cols = 0;
+          //pop up an alert saying game over
+          alert("Game over");
+
+        }
+      }
+    }
   }
 
   public fourbyfour(){
