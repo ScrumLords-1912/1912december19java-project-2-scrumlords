@@ -28,7 +28,7 @@ export class ConnectionService {
   sendUserPreferredBoardSize2(columns: number){
     var user_id = this.user.loggedInUser.id;
     var cardPairCount = (columns * columns) / 2;
-    this.http.get(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`).subscribe((response)=>{
+    this.http.get(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`).subscribe((response: string)=>{
       console.log(`recieved ${response}`);
     });
   }
