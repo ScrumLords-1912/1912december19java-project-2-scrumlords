@@ -28,6 +28,13 @@ export class ConnectionService {
   sendUserPreferredBoardSize2(columns: number){
     var user_id = this.user.loggedInUser.id;
     var cardPairCount = (columns * columns) / 2;
+    var httpOptionsPlain = {
+      headers: new HttpHeaders({
+        'Accept': 'text/plain',
+        'Content-Type': 'text/plain'
+      }),
+      responseType: 'json'
+    };
     /*
     const requestOptions = Object.assign(
       {}, 
@@ -37,7 +44,8 @@ export class ConnectionService {
 
     this.httpClient.request('GET', './mockjson.json', requestOptions)
     */
-    this.http.get(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`, { responseType: 'json' }).subscribe((response: JSON)=>{
+
+    this.http.request('GET',`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`).subscribe((response: any)=>{
       console.log(`recieved ${response}`);
     });
   }
@@ -48,7 +56,7 @@ export class ConnectionService {
     /*
     return this.http.get<ResponseBoardSize>(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`).toPromise();
     */
-   this.http.get(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`, { responseType: 'text' }).subscribe((response: string)=>{
+   this.http.get(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`, { responseType: 'text' as 'json' }).subscribe((response: any)=>{
     console.log(`recieved ${response}`);
   });
  }
