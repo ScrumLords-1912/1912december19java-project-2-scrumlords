@@ -28,13 +28,13 @@ export class ConnectionService {
   sendUserPreferredBoardSize(columns: number){
     var user_id = this.user.loggedInUser.id;
     var cardPairCount = (columns * columns) / 2;
-    return this.http.get<JSON>(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`).toPromise();
+    return this.http.get<string>(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`).toPromise();
  }
 
 //changed to int
  getOutcomeForCardClicked(cardID: number){
    var user_id = this.user.loggedInUser.id;
-   return this.http.get<JSON>(`${this.gameUrl}/clickedcardoutcome/${user_id}/${cardID}`).toPromise();
+   return this.http.get<number>(`${this.gameUrl}/clickedcardoutcome/${user_id}/${cardID}`).toPromise();
  }
   
 
