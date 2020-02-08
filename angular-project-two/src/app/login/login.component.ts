@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.registering === true) {
+    if (this.registering === true && (this.user.username !== '' && this.user.password !== '')) {
       this.userService.register(this.user.id, this.user.username, this.user.password);
     } else {
       this.userService.attemptLogIn(this.user.id, this.user.username, this.user.password);

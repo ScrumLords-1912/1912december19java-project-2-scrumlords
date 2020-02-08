@@ -6,10 +6,7 @@ import { User } from '../user';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styles: [
-    'header {font-family : "Trubuchet MS Bold Italic", Times, serif; color : aliceblue; padding:10px;}',
-    'img {height : auto; width : 10%;}',
-  ]
+  styleUrls: ['./header.css']
 })
 export class HeaderComponent implements OnInit {
 
