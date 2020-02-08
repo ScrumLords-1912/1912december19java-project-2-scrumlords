@@ -9,7 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { FullscreenOverlayContainer } from '@angular/cdk/overlay';
 //import { Cardpage3Component } from './cardpage3/cardpage3.component';
-
+import { Cardpage4Component } from './cardpage4/cardpage4.component'  
 
 
 const routes: Routes = [
@@ -22,11 +22,11 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
   },  
-  //{
-  //  path: 'match',
-  //  component: Cardpage3Component,
-  //  canActivate: [AuthGuard]
-  //},
+  {
+    path: 'match',
+    component: Cardpage4Component,
+    
+  },
   {
     path: 'leaderboard',
     component: LeaderboardComponent,
