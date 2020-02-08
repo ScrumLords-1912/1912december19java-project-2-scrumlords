@@ -112,20 +112,30 @@ previousCard: Card;
         //show the image
         this.cardList[cardposition].imageUrl = this.allCards[j].image;               
         // determine if a match occured
+        var self = this;
         if(matchresult == 0 && this.previousCard == undefined) {
           this.previousCard = this.cardList[cardposition];
         }
         else if(matchresult == 0 && this.previousCard != undefined) {
-          this.timerFlipDown(this.cardList[cardposition], this.previousCard);
-          this.previousCard = undefined;
+          window.setTimeout(function () { 
+            console.log("in timerFlipDown callback");    
+            self.timerFlipDown(self.cardList[cardposition], self.previousCard);   
+            self.previousCard = undefined; 
+            }, 1100);         
         }
         else if(matchresult == 1 && this.previousCard == undefined) {
           //this should not happen
-          this.timerRemove(this.cardList[cardposition]);
+          window.setTimeout(function () { 
+            console.log("in timerFlipDown callback");    
+            self.timerRemove(self.cardList[cardposition]);
+            }, 1100);           
         }
         else if(matchresult == 1 && this.previousCard != undefined) {
-          this.timerRemoveBoth(this.cardList[cardposition], this.previousCard);
-          this.previousCard = undefined;
+          window.setTimeout(function () { 
+            console.log("in timerFlipDown callback");    
+            self.timerRemoveBoth(self.cardList[cardposition], self.previousCard);
+            self.previousCard = undefined;
+            }, 1100);              
         }
         else if(matchresult == 2){
           // make the board disappear
@@ -162,36 +172,24 @@ public draw4by4grid(){
   console.log("In 4 by 4 grid method");
   this.cardList = [];    //empty  
   this.cols = 4;
-
   for(var i = 0; i < 16; i++){
     let card = new Card();
     card.id = i;
     card.imageUrl = this.backimg;
-    //card.correctImageUrl =  tarots[i].image;
-    //card.name = tarots[i].name;
-    //card.description = tarots[i].description;
-    
     this.cardList.push(card);
   }
   console.log("Card list size is " + this.cardList.length);
 }
-
 public draw6by6grid(){
   console.log("In 6 by 6 grid method");
   this.cardList = [];    //empty  
   this.cols = 6;
-
-  for(var i = 1; i <= 36; i++){
+  for(var i = 0; i < 36; i++){
     let card = new Card();
     card.id = i;
     card.imageUrl = this.backimg;
-    //card.correctImageUrl =  tarots[i].image;
-    //card.name = tarots[i].name;
-    //card.description = tarots[i].description;
-    
     this.cardList.push(card);
   }
   console.log("Card list size is " + this.cardList.length);
 }
-
 }
