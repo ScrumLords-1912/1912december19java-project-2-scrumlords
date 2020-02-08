@@ -154,26 +154,33 @@ previousCard: Card;
 }
 
 public sixbysix(){
-  this.cardList = [];    //empty  
-  this.cols = 6;
+  
+  var self = this;
   //this.connection.sendUserPreferredBoardSize(6);  
   
   this.connection.sendUserPreferredBoardSize(6).subscribe((response: any)=>{
     console.log("Received " + response);
-    
-      for(var i = 1; i <= 36; i++){
-        let card = new Card();
-        card.id = i;
-        card.imageUrl = this.backimg;
-        //card.correctImageUrl =  tarots[i].image;
-        //card.name = tarots[i].name;
-        //card.description = tarots[i].description;
-        
-        this.cardList.push(card);
-      }
-        
+    self.draw6by6grid();        
   });
   
+}
+
+public draw6by6grid(){
+  console.log("In 6 by 6 grid method");
+  this.cardList = [];    //empty  
+  this.cols = 6;
+
+  for(var i = 1; i <= 36; i++){
+    let card = new Card();
+    card.id = i;
+    card.imageUrl = this.backimg;
+    //card.correctImageUrl =  tarots[i].image;
+    //card.name = tarots[i].name;
+    //card.description = tarots[i].description;
+    
+    this.cardList.push(card);
+  }
+  console.log("Card list size is " + this.cardList.length);
 }
 
 }
