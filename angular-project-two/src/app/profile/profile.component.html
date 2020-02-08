@@ -15,22 +15,21 @@
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block" (click)="updateInfo()">Submit Update</button>
                 </div>
+                <div class="form-group text-center" *ngIf="pass">
+                    <ngb-alert type="success" [dismissible]="false">
+                        <Strong>Success!</Strong> Your update request succeeded!
+                    </ngb-alert>
+                </div>
+                
+                <div class="form-group text-center" *ngIf="fail">
+                    <ngb-alert type="danger" [dismissible]="false">
+                        <Strong>Sorry</Strong> Your update request failed.
+                    </ngb-alert>
+                </div>
             </form>
         </div>
     </div>
 </div>
-
-<p class="text-center" *ngIf="pass">
-    <ngb-alert type="success" [dismissible]="false">
-        <Strong>Success!</Strong> Your update request succeeded!
-    </ngb-alert>
-</p>
-
-<p class="text-center" *ngIf="fail">
-    <ngb-alert type="danger" [dismissible]="false">
-        <Strong>Sorry</Strong> Your update request failed.
-    </ngb-alert>
-</p>
 
 <br><br>
 
