@@ -50,15 +50,17 @@ export class ConnectionService {
     });
   }
 
-  sendUserPreferredBoardSize(columns: number){
+  sendUserPreferredBoardSize(columns: number): Observable<any>{
     var user_id = this.user.loggedInUser.id;
     var cardPairCount = (columns * columns) / 2;
     /*
     return this.http.get<ResponseBoardSize>(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`).toPromise();
-    */
-   this.http.get(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`, { responseType: 'text' as 'json' }).subscribe((response: any)=>{
+
+    .subscribe((response: any)=>{
     console.log(`recieved ${response}`);
   });
+    */
+   return this.http.get(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`, { responseType: 'text' as 'json' });
  }
 
 //changed to int
