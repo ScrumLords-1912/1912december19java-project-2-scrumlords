@@ -5,3 +5,7 @@ export class Card {
     name : string;
     description : string;
   }
+
+  export class ResponseBoardSize {
+    text: string;
+  }

@@ -4,7 +4,7 @@ import {HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Scores } from './scores';
 import { UserService } from './user.service';
-import {Card} from './cardpage3/cardpage3.component';
+import {ResponseBoardSize} from './card';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,7 @@ export class ConnectionService {
   sendUserPreferredBoardSize(columns: number){
     var user_id = this.user.loggedInUser.id;
     var cardPairCount = (columns * columns) / 2;
-    return this.http.get<string>(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`).toPromise();
+    return this.http.get<ResponseBoardSize>(`${this.gameUrl}/cardlist/${user_id}/${cardPairCount}`).toPromise();
  }
 
 //changed to int
