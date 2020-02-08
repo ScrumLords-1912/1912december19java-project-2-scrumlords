@@ -1,0 +1,49 @@
+.login-row {
+    margin-top: 120px;
+    margin-left: 21%;
+    margin-right: 21%;
+    background-color: #3b3733;
+}
+
+.bottom {
+    height: 120px;
+    border-top: 10px solid #3b3733;
+}
+
+.submit-button {
+    display: inline-block;
+    background-color: #4CAF50;
+    border: none;
+    padding: 10px;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    outline: none;
+  }
+  
+  .submit-button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .submit-button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .submit-button:hover span {
+    padding-right: 25px;
+  }
+  
+  .submit-button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
