@@ -85,17 +85,16 @@ previousCard: Card;
       if(this.cardList[i].id  == cardID){
 
         this.connection.getOutcomeForCardClicked(cardID).then((outcome)=>{
-          console.log("Received " + outcome);
+          console.log("Received an " + outcome);
           // implication of this is when the response comes in, we divide the number brought in by 10, for example either 2.0 or 2.1
           let result: number = 0;
           let idofcard: number = 0;
-          
+          console.log("About to start flipping stuff");
           result = outcome;
           idofcard = Math.floor(result / 10); //  21/10
           var matchresult = result % 10; //20 % 10 = 0
           console.log("The ID of the card clicked is " + idofcard + ". position of card chosen is " + i);
-          self.performOutcome(idofcard, matchresult, i);
-                 
+          self.performOutcome(idofcard, matchresult, i);                 
         });
         //this.cardList[i].imageUrl = this.cardList[i].correctImageUrl;
         break;
