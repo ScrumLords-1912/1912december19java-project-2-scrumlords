@@ -36,7 +36,8 @@ previousCard: Card;
   ngOnInit() {
   }
 
-  timerFlipDown(card1: Card, card2: Card){    
+  timerFlipDown(card1: Card, card2: Card){   
+    console.log("In timerFlipDown First card ID " + card1.id + " second card ID " + card2.id);
     for(var i = 0; i <= this.cardList.length; i++){
       if(this.cardList[i].id  == card1.id){        
         this.cardList[i].imageUrl = this.backimg;
@@ -53,6 +54,7 @@ previousCard: Card;
   }
 
   timerRemove(card: Card){
+    console.log("In timerRemove First card ID " + card.id);
     for(var i = 0; i <= this.cardList.length; i++){
       if(this.cardList[i].id  == card.id){        
         this.cardList[i].imageUrl = "";
@@ -62,6 +64,7 @@ previousCard: Card;
   }
 
   timerRemoveBoth(card1: Card, card2: Card){
+    console.log("In timerRemoveBoth First card ID " + card1.id + " second card ID " + card2.id);
     for(var i = 0; i <= this.cardList.length; i++){
       if(this.cardList[i].id  == card1.id){        
         this.cardList[i].imageUrl = "";
@@ -131,42 +134,46 @@ previousCard: Card;
           alert("Game over");
 
         }
-      }
+      } 
     }
   }
 
   public fourbyfour(){
-    this.cardList = [];    //empty  
-    this.cols = 4;
-    this.connection.sendUserPreferredBoardSize2(4);
-    /*
-    this.connection.sendUserPreferredBoardSize2(4).then((confirm)=>{
-      console.log("Received " + confirm);
-      for(var i = 1; i <= 16; i++){
-        let card = new Card();
-        card.id =i;
-        card.imageUrl = this.backimg;
-        //card.correctImageUrl =  tarots[i].image;
-        //card.name = tarots[i].name;
-        //card.description = tarots[i].description;
-        
-        this.cardList.push(card);
-      }
-        
-    });
-    */
+    var self = this;  
+  
+    this.connection.sendUserPreferredBoardSize(4).subscribe((response: any)=>{
+      console.log("Received " + response);
+      self.draw4by4grid();        
+    });   
 }
 
 public sixbysix(){
   
-  var self = this;
-  //this.connection.sendUserPreferredBoardSize(6);  
+  var self = this;  
   
   this.connection.sendUserPreferredBoardSize(6).subscribe((response: any)=>{
     console.log("Received " + response);
     self.draw6by6grid();        
   });
   
+}
+
+public draw4by4grid(){
+  console.log("In 4 by 4 grid method");
+  this.cardList = [];    //empty  
+  this.cols = 4;
+
+  for(var i = 1; i <= 16; i++){
+    let card = new Card();
+    card.id = i;
+    card.imageUrl = this.backimg;
+    //card.correctImageUrl =  tarots[i].image;
+    //card.name = tarots[i].name;
+    //card.description = tarots[i].description;
+    
+    this.cardList.push(card);
+  }
+  console.log("Card list size is " + this.cardList.length);
 }
 
 public draw6by6grid(){
