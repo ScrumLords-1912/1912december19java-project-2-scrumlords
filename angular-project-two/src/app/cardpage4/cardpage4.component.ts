@@ -83,7 +83,8 @@ previousCard: Card;
     for(var i = 0; i < this.cardList.length; i++){
       if(this.cardList[i].id  == cardID){
 
-        this.connection.getOutcomeForCardClicked(cardID).then(function(outcome){
+        this.connection.getOutcomeForCardClicked(cardID).then((outcome)=>{
+          console.log("Received " + outcome);
           // implication of this is when the response comes in, we divide the number brought in by 10, for example either 2.0 or 2.1
           let result: number = 0;
           let idofcard: Number = 0;
@@ -132,11 +133,12 @@ previousCard: Card;
     this.cardList = [];    //empty  
     this.cols = 4;
     
-    this.connection.sendUserPreferredBoardSize(4).then(function(confirm){
+    this.connection.sendUserPreferredBoardSize(4).then((confirm)=>{
+      console.log("Received " + confirm);
       for(var i = 1; i <= 16; i++){
         let card = new Card();
         card.id =i;
-        card.imageUrl = this.backimage;
+        card.imageUrl = this.backimg;
         //card.correctImageUrl =  tarots[i].image;
         //card.name = tarots[i].name;
         //card.description = tarots[i].description;
@@ -151,11 +153,11 @@ public sixbysix(){
   this.cardList = [];    //empty  
   this.cols = 6;
     
-  this.connection.sendUserPreferredBoardSize(6).then(function(confirm){
+  this.connection.sendUserPreferredBoardSize(6).then((confirm)=>{
       for(var i = 1; i <= 36; i++){
         let card = new Card();
         card.id = i;
-        card.imageUrl = this.backimage;
+        card.imageUrl = this.backimg;
         //card.correctImageUrl =  tarots[i].image;
         //card.name = tarots[i].name;
         //card.description = tarots[i].description;
