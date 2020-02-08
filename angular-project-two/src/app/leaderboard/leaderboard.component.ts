@@ -7,17 +7,7 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-leaderboard',
   templateUrl: './leaderboard.component.html',
-  styles: ['h4 {text-align: center',
-    'th {text-align: center}',
-    'td {text-align: center}',
-    'h1 {text-align: center}',
-    'ngb-tab {text-align: center}',
-    '* {color: white}',
-    '::ng-deep a {color: white; margin: auto;}',
-    '::ng-deep .nav-pills {display: table; margin: auto; padding: 1em;}',
-    '::ng-deep li {display: inline-block}',
-    '.scrollbar {height: 500px; margin-bottom: 25px; overflow-y: auto}',
-  ]
+  styleUrls: ['./leaderboard.css']
 })
 export class LeaderboardComponent implements OnInit {
 
