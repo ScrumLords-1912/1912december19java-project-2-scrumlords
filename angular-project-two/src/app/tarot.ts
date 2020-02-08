@@ -169,4 +169,4 @@ export const backImage = {
 
 export const DECK = [fool, magician, highPriestess, empress, emperor, 
     hierophant, lovers, chariot, strength, hermit, wheel, justice, hangMan, death,
-    temperance, devil, tower, star, moon, sun, judgement, world, backImage]
+    temperance, devil, tower, star, moon, sun, judgement, world]
