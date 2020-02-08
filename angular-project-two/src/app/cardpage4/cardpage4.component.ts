@@ -88,6 +88,7 @@ previousCard: Card;
           // implication of this is when the response comes in, we divide the number brought in by 10, for example either 2.0 or 2.1
           let result: number = 0;
           let idofcard: Number = 0;
+          /*
           result = outcome;
           idofcard = Math.floor(result / 10); //  21/10
           var matchresult = result % 10; //20 % 10 = 0
@@ -121,7 +122,8 @@ previousCard: Card;
 
               }
             }
-          }          
+          }   
+          */       
         });
         //this.cardList[i].imageUrl = this.cardList[i].correctImageUrl;
         break;
@@ -154,6 +156,7 @@ public sixbysix(){
   this.cols = 6;
     
   this.connection.sendUserPreferredBoardSize(6).then((confirm)=>{
+    console.log("Received " + confirm);
       for(var i = 1; i <= 36; i++){
         let card = new Card();
         card.id = i;
