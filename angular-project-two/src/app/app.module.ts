@@ -17,6 +17,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { CardpageComponent } from './cardpage/cardpage.component';
 import { Cardpage2Component } from './cardpage2/cardpage2.component';
 import { MatCardModule, MatGridListModule } from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Cardpage3Component } from './cardpage3/cardpage3.component';
 import { AuthGuard } from './auth.guard';
@@ -48,7 +49,8 @@ import { Cardpage4Component } from './cardpage4/cardpage4.component';
     FormsModule,
     MatCardModule,
     MatGridListModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
