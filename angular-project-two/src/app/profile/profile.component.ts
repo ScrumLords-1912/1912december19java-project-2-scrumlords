@@ -2,20 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { UserService } from '../user.service';
 
-interface Alert {
-  type: string;
-  message: string;
-}
-
-const ALERTS: Alert[] = [{
-  type: 'success',
-  message: '<Strong>Success!</Strong> Your update request succeeded!',
-},{
-  type: 'danger',
-  message: '<Strong>Warning!</Strong> Your update request failed',
-},
-];
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',

@@ -19,6 +19,13 @@
                     <div class="text-center">
                         <button class="submit-button" (click)=switchView()><span>{{display.switch}}</span></button>
                     </div>
+                
+                    <div class="form-group text-center" *ngIf="this.userService.logFail">
+                        <ngb-alert type="danger" [dismissible]="false">
+                            <Strong>Warning</Strong> incorrect Username/Password combination.
+                        </ngb-alert>
+                    </div>
+                
                 </form>
             </div>
         </div>

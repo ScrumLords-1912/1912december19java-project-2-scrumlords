@@ -13,6 +13,7 @@ export class UserService {
 
   public isLoggedIn: boolean = false;
   public loggedInUser: User = new User(0, '', '');
+  public logFail: boolean = false;
 
   register(id:number, username: string, password: string){
     this.http.post('http://ec2-3-90-146-246.compute-1.amazonaws.com:8081/project-2/login/create-account', new User(id, username, password))    .subscribe((response)=>{
@@ -31,6 +32,8 @@ export class UserService {
           this.loggedInUser = loggingInAsUser;
           this.router.navigateByUrl('/leaderboard');
         } else {
+          console.log('failing to login');
+          this.logFail = true;
           this.isLoggedIn = false;
           this.loggedInUser = new User(0, "", "");
         }
