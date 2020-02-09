@@ -31,9 +31,11 @@ previousCard: Card;
      this.cols=0;
      //this is the cover of the card.
      this.backimg =backImage.image;  
+     
    }
 
   ngOnInit() {
+    this.connection.getBoard();
   }
 
   timerFlipDown(card1: Card, card2: Card){   

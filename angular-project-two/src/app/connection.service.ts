@@ -16,6 +16,8 @@ export class ConnectionService {
   baseUrl = 'http://ec2-3-90-146-246.compute-1.amazonaws.com:8081/project-2/leaderboards';
 
   gameUrl = 'http://ec2-3-90-146-246.compute-1.amazonaws.com:8081/project-2/gamecard';
+  
+  boardUrl= 'http://ec2-3-90-146-246.compute-1.amazonaws.com:8081/project-2/gamecard/board';
 
   getUserScores(): Promise<Scores[]> {
     return this.http.get<Scores[]>(`${this.baseUrl}/users/${this.user.loggedInUser.id}`).toPromise();
@@ -69,5 +71,12 @@ export class ConnectionService {
    return this.http.get<number>(`${this.gameUrl}/clickedcardoutcome/${user_id}/${cardID}`).toPromise();
  }
   
+ getBoard(){
+  var user_id = this.user.loggedInUser.id;
+  //return this.http.get<number>(`${this.boardUrl}/${user_id}}`).toPromise();
+  this.http.request('GET',`${this.boardUrl}/${user_id}}`).subscribe((response: any)=>{
+    console.log(`recieved board ${response}`);
+  });
+}
 
 }
