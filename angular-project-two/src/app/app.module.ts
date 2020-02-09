@@ -23,6 +23,7 @@ import { Cardpage3Component } from './cardpage3/cardpage3.component';
 import { AuthGuard } from './auth.guard';
 import { UserService } from './user.service';
 import { Cardpage4Component } from './cardpage4/cardpage4.component';
+import { CookieclickerComponent } from './cookieclicker/cookieclicker.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { Cardpage4Component } from './cardpage4/cardpage4.component';
     CardpageComponent,
     Cardpage2Component,
     Cardpage3Component,
-    Cardpage4Component
+    Cardpage4Component,
+    CookieclickerComponent
   ],
   imports: [
     BrowserModule,

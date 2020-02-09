@@ -1,0 +1,31 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+
+<div class = "container-fluid">
+    <div class = "jumbotron">
+        <div class = "col-md-6">
+            <h1 class = "font-italic text-success">Cookie Clicker Tree(3)!</h1>
+        </div>
+        <div class = "col-md-6">
+            <img src = "https://pluspng.com/img-png/cookie-png-cookie-png-image-1680.png" class = "img-fluid">
+        </div>
+    </div>
+    <div class = "row">
+        <div class = "col-md-6">
+            <div>
+                <h4 class = "text-warning">
+                    Cookie Counter: {{clickingPower}}
+                </h4>
+            </div>
+            <div>
+                Clicker Power: {{clickingPower}}
+                <button (click)="addClick()">Make Cookies!</button>
+            </div>
+        </div>
+        <div class = "col-md-6">
+            <p>
+                Shop Stuff
+            </p>
+        </div>
+    </div>
+</div>
