@@ -31,6 +31,7 @@ previousCard: Card;
      this.cols=0;
      //this is the cover of the card.
      this.backimg =backImage.image;  
+     connection.getBoard();
    }
 
   ngOnInit() {
