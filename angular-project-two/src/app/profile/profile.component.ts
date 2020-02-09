@@ -5,19 +5,7 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styles: [`
-  .login-row {
-  margin-top: 120px;
-  margin-left: 21%;
-  margin-right: 21%;
-  background-color: #3b3733;
-}
-
-.bottom {
-  height: 120px;
-  border-top: 10px solid #3b3733;
-}
-`]
+  styleUrls: ['./profile.css']
 })
 
 export class ProfileComponent implements OnInit {

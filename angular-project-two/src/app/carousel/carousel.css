@@ -1,0 +1,15 @@
+.image {
+    height: 45em;
+    width: auto;
+    background-size: cover;
+    background-image: url('https://a-static.besthdwallpaper.com/tarot-cards-wallpaper-1920x1200-28462_6.jpg');
+    background-position: center;
+}
+
+::ng-deep .carousel-control-next-icon {
+    transform: translate(-8em);
+}
+
+::ng-deep .carousel-control-prev-icon {
+    transform: translate(8em);
+}
