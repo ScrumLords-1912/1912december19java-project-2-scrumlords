@@ -36,13 +36,6 @@ previousCard: Card;
 
   ngOnInit() {
   }
-  
-
-  getBoard() {
-    console.log("In getBoard method");
-    this.connection.getBoard();
-  }
-
   timerFlipDown(card1: Card, card2: Card){   
     console.log("In timerFlipDown First card ID " + card1.id + " second card ID " + card2.id);
     for(var i = 0; i <= this.cardList.length; i++){

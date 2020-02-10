@@ -5,8 +5,10 @@
     width:100%;
     height: auto;
   }
- mat-grid-tile {
-    background: lightblue;
-    /* background-image: 'assets/table_image.jfif'; */
-  }
- 
+  .image {
+   height: 48em;
+   width: auto;
+   background-size: cover;
+   background-image: url('https://a-static.besthdwallpaper.com/path-to-the-gothic-choir-wallpaper-3440x1440-26843_15.jpg');
+   background-position: center;
+ }
