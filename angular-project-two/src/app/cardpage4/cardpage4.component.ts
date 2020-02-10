@@ -6,7 +6,7 @@ import {ConnectionService} from '../connection.service';
 @Component({
   selector: 'app-cardpage4',
   templateUrl: './cardpage4.component.html',
-  styles: []
+  styleUrls: ['./cardpage4.component.css']
 })
 export class Cardpage4Component implements OnInit {
 

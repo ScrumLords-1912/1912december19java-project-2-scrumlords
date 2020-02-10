@@ -1,12 +1,21 @@
 .tp-card {
-    max-height: 100px;
- }
- .tile-image {
-    width:100%;
-    height: auto;
-  }
- mat-grid-tile {
-    background: lightblue;
-    /* background-image: 'assets/table_image.jfif'; */
-  }
- 
+   max-height: 100px;
+}
+
+.tile-image {
+   width: 100%;
+   height: auto;
+}
+
+
+mat-card {
+  background: none;
+}
+
+.image {
+   height: 45em;
+   width: auto;
+   background-size: contain;
+   background-image: url('https://files.slack.com/files-pri/TRDNB7BS7-FTEPCF57V/wooden_floor_texture_iphone_5_wallpaper_download___ipad_wallpapers___iphone_wallpapers_one-stop_download.jpg');
+   background-position: center;
+}
