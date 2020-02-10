@@ -1,5 +1,5 @@
 export class Cookie {
-    user_id: number;
+    userId: number;
     cookies: number;
-    purchases: string;
+    state: string;
 }

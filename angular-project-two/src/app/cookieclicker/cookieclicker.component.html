@@ -14,7 +14,7 @@
         <div class = "col-md-6">
             <div>
                 <h4 class = "text-warning">
-                    Cookie Counter: {{clickingPower}}
+                    Cookie Counter: {{cookieInfo.cookies}}
                 </h4>
             </div>
             <div>
@@ -23,9 +23,26 @@
             </div>
         </div>
         <div class = "col-md-6">
-            <p>
-                Shop Stuff
-            </p>
+            <div>
+                <h4 class = "text-success">Shop</h4>
+            </div>
+            <div>
+                <p>
+                    {{purchaseNames[0]}}
+                </p>
+                <p>
+                    Owned: {{purchaseInfo[0]}} Price: {{purchasecurrentcosts[0]}}
+                </p>
+                <p>
+                    <button (click)="purchase0()">Purchase!</button>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class = "row">
+        <div>
+            Save Game:
+            <button (click)="saveState()">Save</button>
         </div>
     </div>
 </div>

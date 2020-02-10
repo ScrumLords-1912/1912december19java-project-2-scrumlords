@@ -82,9 +82,8 @@ export class ConnectionService {
   });
 }
 
-getCookie(): Observable<Cookie> {
-  var user_id = this.user.loggedInUser.id;
-  return this.http.get<Cookie>(`${this.cookieUrl}/${user_id}`);
+getCookie(): Promise<Cookie> {
+  return this.http.get<Cookie>(`${this.cookieUrl}/${this.user.loggedInUser.id}`).toPromise();
 }
 
 saveCookie(cookie: Cookie): void {
