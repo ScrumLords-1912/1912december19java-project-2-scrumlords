@@ -18,7 +18,7 @@ export class ConnectionService {
 
   gameUrl = 'http://ec2-3-90-146-246.compute-1.amazonaws.com:8081/project-2/gamecard';
   
- // boardUrl= 'http://ec2-3-90-146-246.compute-1.amazonaws.com:8081/project-2/gamecard/board';
+  boardUrl= 'http://ec2-3-90-146-246.compute-1.amazonaws.com:8081/project-2/gamecard/board';
 
   cookieUrl = 'http://ec2-3-90-146-246.compute-1.amazonaws.com:8081/project-2/cookie'
 
@@ -57,13 +57,13 @@ export class ConnectionService {
    return this.http.get<number>(`${this.gameUrl}/clickedcardoutcome/${user_id}/${cardID}`).toPromise();
  }
   
-// getBoard(){
-  //var user_id = this.user.loggedInUser.id;
-  //return this.http.get<number>(`${this.boardUrl}/${user_id}}`).toPromise();
-  //this.http.request('GET',`${this.boardUrl}/${user_id}}`).subscribe((response: any)=>{
-    //console.log(`recieved board ${response}`);
-  //});
-//}
+ getBoard(){
+  var user_id = this.user.loggedInUser.id;
+  return this.http.get<number>(`${this.boardUrl}/${user_id}}`).toPromise();
+  this.http.request('GET',`${this.boardUrl}/${user_id}}`).subscribe((response: any)=>{
+    console.log(`recieved board ${response}`);
+  });
+}
 
 getCookie(): Promise<Cookie> {
   return this.http.get<Cookie>(`${this.cookieUrl}/${this.user.loggedInUser.id}`).toPromise();
