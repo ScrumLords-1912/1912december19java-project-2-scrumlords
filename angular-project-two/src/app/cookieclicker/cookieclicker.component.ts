@@ -49,7 +49,7 @@ export class CookieclickerComponent implements OnInit {
     console.log(this.cookieInfo);
     if (this.cookieInfo == null) {//Start up a new session if one doesn't exist.
       console.log("making new cookie");
-      this.cookieInfo = {userId: this.user.loggedInUser.id, cookies: 20, state: "1,0,0"};
+      this.cookieInfo = {userId: this.user.loggedInUser.id, cookies: 0, state: "0,0,0"};
     } else {
       console.log(this.cookieInfo);
     }
@@ -60,7 +60,7 @@ export class CookieclickerComponent implements OnInit {
     for (i = 0; i < this.purchaseInfo.length; i++) {
       let j: number;
       for(j = 0; j < this.purchaseInfo[i]; j++) {
-        this.purchasecurrentcosts[0] *= 2;
+        this.purchasecurrentcosts[i] *= 2;
       }
     }
     this.clickingPower = this.calculateClickingPower();
@@ -80,6 +80,24 @@ export class CookieclickerComponent implements OnInit {
       this.purchasecurrentcosts[0] *= 2;
       this.purchaseInfo[0]++;
       this.clickingPower += this.purchaseboosts[0];
+    }
+  }
+
+  purchase1(): void {
+    if (this.cookieInfo.cookies >= this.purchasecurrentcosts[1]) {
+      this.cookieInfo.cookies -= this.purchasecurrentcosts[1];
+      this.purchasecurrentcosts[1] *= 2;
+      this.purchaseInfo[1]++;
+      this.clickingPower += this.purchaseboosts[1];
+    }
+  }
+
+  purchase2(): void {
+    if (this.cookieInfo.cookies >= this.purchasecurrentcosts[2]) {
+      this.cookieInfo.cookies -= this.purchasecurrentcosts[2];
+      this.purchasecurrentcosts[2] *= 2;
+      this.purchaseInfo[2]++;
+      this.clickingPower += this.purchaseboosts[2];
     }
   }
 }
