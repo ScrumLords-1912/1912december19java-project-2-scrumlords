@@ -1,0 +1,90 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+
+<div class = "container-fluid">
+    <div class = "jumbotron">
+        <div class = "row">
+            <div class = "col-md-9">
+                <h1 class = "font-italic text-success">Cookie Clicker Tree(3)!</h1>
+            </div>
+            <div class = "col-md-3">
+                <img src = "https://pluspng.com/img-png/cookie-png-cookie-png-image-1680.png" class = "img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class = "row">
+        <div class = "col-md-6">
+            <div>
+                <h4 class = "text-warning">
+                    Cookie Counter: {{cookieInfo.cookies}}
+                </h4>
+            </div>
+            <div class = "font-weight-bold">
+                Clicking Power: {{clickingPower}}
+                <button class="btn btn-success" (click)="addClick()">Make Cookies!</button>
+            </div>
+            <div>
+                <img src="https://compote.slate.com/images/e2855fb1-18ea-4f35-a174-301d35ec5df7.jpg" class = "img-fluid">
+            </div>
+        </div>
+        <div class = "col-md-6">
+            <div>
+                <h2 class = "text-success">Shop</h2>
+            </div>
+            <div>
+                <div class = "row">
+                    <div class = "col-md-2">
+                        <img src="https://helpinghands-salem.org/wp-content/uploads/2014/01/volunteering.jpg" class="img-thumbnail">
+                    </div>
+                    <div class = "col-md-4">
+                        {{purchaseNames[0]}}
+                    </div>
+                </div>
+                <p>
+                    Owned: {{purchaseInfo[0]}} Price: {{purchasecurrentcosts[0]}}
+                </p>
+                <p>
+                    <button class="btn btn-info" (click)="purchase0()">Purchase!</button>
+                </p>
+            </div>
+            <div>
+                <div class = "row">
+                    <div class = "col-md-2">
+                        <img src="https://purepng.com/public/uploads/medium/91506007465pn8xtpdj7tuye5tjqpjkq1xdnwvtdefmcowsoeqzrshrpbrvdw0soaajs0ublquzeehz7ab6g8rquf9a44hrdjr0h6lleyt4zzlw.png" class="img-thumbnail">
+                    </div>
+                    <div class = "col-md-4">
+                        {{purchaseNames[1]}}
+                    </div>
+                </div>
+                <p>
+                    Owned: {{purchaseInfo[1]}} Price: {{purchasecurrentcosts[1]}}
+                </p>
+                <p>
+                    <button class="btn btn-dark" (click)="purchase1()">Purchase!</button>
+                </p>
+            </div>
+            <div>
+                <div class = "row">
+                    <div class = "col-md-2">
+                        <img src="https://www.oxo.com/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/2/0/20081.jpg" class="img-thumbnail">
+                    </div>
+                    <div class = "col-md-4">
+                        {{purchaseNames[2]}}
+                    </div>
+                </div>
+                <p>
+                    Owned: {{purchaseInfo[2]}} Price: {{purchasecurrentcosts[2]}}
+                </p>
+                <p>
+                    <button class="btn btn-warning" (click)="purchase2()">Purchase!</button>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class = "row">
+        <div>
+            Save Game:
+            <button class="btn btn-primary" (click)="saveState()">Save</button>
+        </div>
+    </div>
+</div>

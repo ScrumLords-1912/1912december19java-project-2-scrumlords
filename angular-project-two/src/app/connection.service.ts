@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Scores } from './scores';
 import { UserService } from './user.service';
 import {ResponseBoardSize} from './card';
+import { Cookie } from './cookie';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,8 @@ export class ConnectionService {
   gameUrl = 'http://ec2-3-90-146-246.compute-1.amazonaws.com:8081/project-2/gamecard';
   
  // boardUrl= 'http://ec2-3-90-146-246.compute-1.amazonaws.com:8081/project-2/gamecard/board';
+
+  cookieUrl = 'http://ec2-3-90-146-246.compute-1.amazonaws.com:8081/project-2/cookie'
 
   getUserScores(): Promise<Scores[]> {
     return this.http.get<Scores[]>(`${this.baseUrl}/users/${this.user.loggedInUser.id}`).toPromise();
@@ -61,5 +64,14 @@ export class ConnectionService {
     //console.log(`recieved board ${response}`);
   //});
 //}
+
+getCookie(): Promise<Cookie> {
+  return this.http.get<Cookie>(`${this.cookieUrl}/${this.user.loggedInUser.id}`).toPromise();
+}
+
+saveCookie(cookie: Cookie): void {
+  var user_id = this.user.loggedInUser.id;
+  this.http.post(`${this.cookieUrl}/${user_id}`, cookie).subscribe((data)=>{console.log(data)});
+}
 
 }

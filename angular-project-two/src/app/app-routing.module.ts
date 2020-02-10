@@ -10,6 +10,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { FullscreenOverlayContainer } from '@angular/cdk/overlay';
 //import { Cardpage3Component } from './cardpage3/cardpage3.component';
 import { Cardpage4Component } from './cardpage4/cardpage4.component'  
+import { CookieclickerComponent } from './cookieclicker/cookieclicker.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,11 @@ const routes: Routes = [
   {
     path: 'info',
     component: CarouselComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'cookie',
+    component: CookieclickerComponent,
     canActivate: [AuthGuard]
   },
 ];
