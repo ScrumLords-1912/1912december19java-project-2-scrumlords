@@ -16,6 +16,6 @@ mat-card {
    height: 45em;
    width: auto;
    background-size: contain;
-   background-image: url('https://files.slack.com/files-pri/TRDNB7BS7-FTEPCF57V/wooden_floor_texture_iphone_5_wallpaper_download___ipad_wallpapers___iphone_wallpapers_one-stop_download.jpg');
+   background-image: url('../../assets/WoodenFloorTexture.jpg');
    background-position: center;
 }
