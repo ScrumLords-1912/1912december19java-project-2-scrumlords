@@ -6,11 +6,11 @@ import {ConnectionService} from '../connection.service';
 @Component({
   selector: 'app-cardpage4',
   templateUrl: './cardpage4.component.html',
-  styles: []
+  styleUrls: ['./cardpage4.component.css']
 })
 export class Cardpage4Component implements OnInit {
 
-allCards:Tarot[] = new Array();//21 Tarots
+allCards:Tarot[] = new Array();//21 Tarots, do not count the back cover guys.
 cardList:Card[] = new Array();
 cols: number;
 backimg: string;
@@ -21,13 +21,13 @@ previousCard: Card;
     for(var i = 0; i < DECK.length; i++){
       let deckItem = DECK[i]; //curent Tarot in DECK
       let tarot = new Tarot(); //create new tarot object 
-      tarot.id = deckItem.id;
+      tarot.id = deckItem.id; //tarot id
       tarot.description = deckItem.description;
-      tarot.name = deckItem.name;
-      tarot.image = deckItem.image;
-      this.allCards.push(tarot);
+      tarot.name = deckItem.name; //tarot name
+      tarot.image = deckItem.image; //tarot image
+      this.allCards.push(tarot); //push everything into array
     }
-     //initialze col and backimage
+     //initialze col 
      this.cols=0;
      //this is the cover of the card.
      this.backimg =backImage.image;  
@@ -35,8 +35,12 @@ previousCard: Card;
    }
 
   ngOnInit() {
-    this.connection.getBoard();
   }
+  
+
+ // getBoard() {
+   // this.connection.getBoard();
+  //}
 
   timerFlipDown(card1: Card, card2: Card){   
     console.log("In timerFlipDown First card ID " + card1.id + " second card ID " + card2.id);

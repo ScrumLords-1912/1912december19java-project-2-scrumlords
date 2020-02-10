@@ -1,15 +1,20 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
   
+<body class="image">
  <button mat-button color="primary" (click)="fourbyfour()">4 x 4 Grid</button> <button mat-button color="accent" (click)="sixbysix()">6 x 6 Grid</button>
- <button mat-button color="accent" (click)="getBoard()">Continue Game</button>
+ 
 
   <hr/>
   
-  <mat-card class = "tp-card">
+  <mat-card>
       <mat-grid-list [cols]="cols" rowHeight="100px">
           <mat-grid-tile  *ngFor="let card of cardList" >
               <img (click)="open($event, card.id)" [src]="card.imageUrl" style="object-fit: cover; height: inherit; width: inherit;"/>          
           </mat-grid-tile>
         </mat-grid-list>    
   </mat-card>  
+
+</body>
+
+<app-footer></app-footer>

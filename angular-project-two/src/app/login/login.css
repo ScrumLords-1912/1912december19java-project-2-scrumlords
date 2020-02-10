@@ -1,5 +1,5 @@
 .login-row {
-    margin-top: 120px;
+    transform: translateY(120px);
     margin-left: 21%;
     margin-right: 21%;
     background-color: #3b3733;
@@ -46,4 +46,12 @@
   .submit-button:hover span:after {
     opacity: 1;
     right: 0;
+  }
+
+  .image {
+    height: 48em;
+    width: auto;
+    background-size: cover;
+    background-image: url('https://a-static.besthdwallpaper.com/path-to-the-gothic-choir-wallpaper-3440x1440-26843_15.jpg');
+    background-position: center;
   }
