@@ -20,6 +20,7 @@ import { AuthGuard } from './auth.guard';
 import { UserService } from './user.service';
 import { Cardpage4Component } from './cardpage4/cardpage4.component';
 import { CookieclickerComponent } from './cookieclicker/cookieclicker.component';
+import { Cookie } from './cookie';
 
 @NgModule({
   declarations: [
