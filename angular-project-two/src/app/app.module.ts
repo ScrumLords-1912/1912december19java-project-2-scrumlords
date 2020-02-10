@@ -34,7 +34,8 @@ import { Cookie } from './cookie';
     NavbarComponent,
     CarouselComponent,
     Cardpage4Component,
-    CookieclickerComponent
+    CookieclickerComponent,
+    Cookie
   ],
   imports: [
     BrowserModule,
