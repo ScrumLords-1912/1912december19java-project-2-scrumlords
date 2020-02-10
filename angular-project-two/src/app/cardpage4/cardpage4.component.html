@@ -1,8 +1,9 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
   
-<body class="image">
- <button mat-button color="primary" (click)="fourbyfour()">4 x 4 Grid</button> <button mat-button color="accent" (click)="sixbysix()">6 x 6 Grid</button>
+<body class="image" onload="getBoard()">
+ <button mat-button color="primary" (click)="fourbyfour()">4 x 4 Grid</button> <button mat-button color="primary" (click)="getBoard()">Continue</button> 
+ <!--<button mat-button color="accent" (click)="sixbysix()">6 x 6 Grid</button>-->
  
 
   <hr/>
